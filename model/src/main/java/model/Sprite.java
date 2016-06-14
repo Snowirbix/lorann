@@ -2,7 +2,7 @@ package model;
 
 import java.awt.Image;
 
-public class Sprite {
+public class Sprite implements ISprite {
 	private Image image;
 	
 	public Sprite(String path) {
