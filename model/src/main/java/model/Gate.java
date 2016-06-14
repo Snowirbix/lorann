@@ -1,6 +1,6 @@
 package model;
 
-public class Gate extends MotionLessElement {
+public class Gate extends MotionLessElement implements ITouchable {
 	private boolean state = false;
 	
 	public Gate(char fileSymbol) {
@@ -12,5 +12,13 @@ public class Gate extends MotionLessElement {
 	}
 	public boolean getState() {
 		return this.state;
+	}
+	
+	public void onTouch(IMobile activator) {
+		if(getState()) {
+			System.out.println("win");
+		} else {
+			System.out.println("try again");
+		}
 	}
 }
