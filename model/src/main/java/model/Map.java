@@ -1,9 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Map extends Entity {
 	private int width;
 	private int height;
 	private String map;
+	private ArrayList<IMobile> mobiles;
 	
 	public Map(int width, int height, String map) {
 		this.setWidth(width);
@@ -37,6 +40,21 @@ public class Map extends Entity {
 	}
 
 	public MotionLessElement[][] getMapArray() {
-		return new MotionLessElement[this.getWidth()][this.getHeight()];
+		MotionLessElement[][] mapArray =  new MotionLessElement[this.getWidth()][this.getHeight()];
+
+		for(int y = 0; y < this.getHeight(); y++) {
+    	  for(int x = 0; x < this.getWidth(); x++) {
+    		  switch(this.getMap().toCharArray()[x+this.getHeight()*y]) {
+    		  	case 'L':
+    		  		this.mobiles.add(new Hero());
+    		  		//mapArray[x][y] = new Land();
+    		  		
+    		  }
+    	  }
+      }
+		return mapArray;
+	}
+	public ArrayList<IMobile> getMobiles() {
+		return this.mobiles;
 	}
 }

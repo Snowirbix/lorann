@@ -27,15 +27,21 @@ public class Model extends Observable implements IModel {
 	public void loadMap(int id) {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setMap(daoMap.find(id).getMapArray());
+			this.setMapAndMobiles(daoMap.find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	public void setMap(MotionLessElement[][] map) {
-		this.map = map;
+
+	public void setMapAndMobiles(Map map) {
+		this.map = map.getMapArray();
+		this.setMobiles(map.getMobiles());
 		this.setChanged();
 		this.notifyObservers();
+	}
+	
+	public void setMap(MotionLessElement[][] map) {
+		this.map = map;
 	}
 	public MotionLessElement[][] getMap() {
 		return this.map;
