@@ -28,6 +28,8 @@ public class Mobile extends Element implements IMobile {
 	}
 	
 	public Point move() {
+		this.position.x += this.direction.x;
+		this.position.y += this.direction.y;
 		return this.position;
 	}
 
