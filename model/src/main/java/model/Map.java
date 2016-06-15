@@ -47,8 +47,10 @@ public class Map extends Entity {
     		  switch(this.getMap().toCharArray()[x+this.getHeight()*y]) {
     		  	case 'L':
     		  		this.mobiles.add(new Hero());
-    		  		//mapArray[x][y] = new Land();
-    		  		
+    		  		mapArray[x][y] = new Land();
+    		  		break;
+    		  	default:
+    		  		mapArray[x][y] = new Land();
     		  }
     	  }
       }

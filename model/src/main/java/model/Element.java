@@ -21,10 +21,10 @@ public class Element {
 		this.model = model;
 	}
 	
-	public ArrayList<Sprite> getSprite() {
+	public ArrayList<Sprite> getSprites() {
 		return this.sprites;
 	}
-	public void setSprite(ArrayList<Sprite> sprites) {
+	public void setSprites(ArrayList<Sprite> sprites) {
 		this.sprites = sprites;
 	}
 	
