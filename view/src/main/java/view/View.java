@@ -37,18 +37,24 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, boolean tap) {
 		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
+			case KeyEvent.VK_UP:
+				if(tap) {
+					return ControllerOrder.UP;
+				} else {
+					return ControllerOrder._UP;
+				}
+			case KeyEvent.VK_LEFT:
+				return ControllerOrder.LEFT;
+			case KeyEvent.VK_RIGHT:
+				return ControllerOrder.RIGHT;
+			case KeyEvent.VK_DOWN:
+				return ControllerOrder.DOWN;
+			case KeyEvent.VK_SPACE:
+				return ControllerOrder.ATTACK;
 			default:
-				return ControllerOrder.English;
+				return ControllerOrder.NOOP;
 		}
 	}
 

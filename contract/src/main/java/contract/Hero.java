@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class Hero extends Mobile implements ITouchable {
 	private FireBall fireBall;
+	private ArrayList<ControllerOrder> orders;
 	
-	public Hero(IModel model, int x, int y) {
-		super(model, x, y);
+	public Hero(IModel model) {
+		super(model, 0, 0);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("lorann_b.png"));
 		this.setSprites(sprites);
@@ -18,5 +19,15 @@ public class Hero extends Mobile implements ITouchable {
 	
 	public void onTouch(IMobile activator) {
 		//
+	}
+	public void addOrder(ControllerOrder order) {
+		this.orders.add(order);
+	}
+
+	public void removeOrder(ControllerOrder order) {
+		int index = this.orders.indexOf(order);
+		if(index != -1) {
+			this.orders.remove(index);
+		}
 	}
 }

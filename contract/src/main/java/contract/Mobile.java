@@ -22,11 +22,16 @@ public class Mobile extends Element implements IMobile {
 	public Point getDirection() {
 		return direction;
 	}
-	public void setDirection(Point direction) {
-		this.direction = direction;
+	public void setDirection(int x, int y) {
+		this.direction.x += x;
+		this.direction.y += y;
 	}
 	
 	public Point move() {
 		return this.position;
+	}
+
+	public void setPosition(int x, int y) {
+		this.position = new Point(x, y);
 	}
 }

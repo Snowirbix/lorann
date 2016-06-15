@@ -9,4 +9,10 @@ public interface IMobile {
 	public Image getImage();
 
 	public Point getPosition();
+
+	public Point getDirection();
+
+	public void setDirection(int x, int y);
+
+	public void setPosition(int x, int y);
 }

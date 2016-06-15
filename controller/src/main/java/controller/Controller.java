@@ -1,7 +1,9 @@
 package controller;
 
 import contract.ControllerOrder;
+import contract.Hero;
 import contract.IController;
+import contract.IMobile;
 import contract.IModel;
 import contract.IView;
 
@@ -65,23 +67,26 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		Hero hero = (Hero) this.model.getMobiles().get(0);
 		switch (controllerOrder) {
-			case English:
-				//this.model.loadMessage("GB");
+			case UP:
+				hero.setDirection(0, 1);
+				hero.addOrder(controllerOrder);
 				break;
-			case Francais:
-				//this.model.loadMessage("FR");
+			case _UP:
+				hero.setDirection(0, -1);
+				hero.removeOrder(ControllerOrder.UP);
+			case LEFT:
+				hero.setDirection(-1, 0);
 				break;
-			case Deutsch:
-				//this.model.loadMessage("DE");
+			case RIGHT:
 				break;
-			case Indonesia:
-				//this.model.loadMessage("ID");
+			case DOWN:
 				break;
 
 			default:
 				break;
 		}
+		System.out.println(hero.getDirection());
 	}
-
 }
