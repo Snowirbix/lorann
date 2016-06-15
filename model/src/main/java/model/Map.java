@@ -6,9 +6,9 @@ public class Map extends Entity {
 	private String map;
 	
 	public Map(int width, int height, String map) {
-		this.width = width;
-		this.height = height;
-		this.map = map;
+		this.setWidth(width);
+		this.setHeight(height);
+		this.setMap(map);
 	}
 	
 	public Map() {
@@ -36,4 +36,7 @@ public class Map extends Entity {
 		this.height = height;
 	}
 
+	public MotionLessElement[][] getMapArray() {
+		return new MotionLessElement[this.getWidth()][this.getHeight()];
+	}
 }

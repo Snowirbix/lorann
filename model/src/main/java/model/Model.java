@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IModel;
@@ -12,51 +13,40 @@ import contract.IModel;
  */
 public class Model extends Observable implements IModel {
 
-	/** The message. */
-	private String message;
+	private MotionLessElement[][] map;
+	private ArrayList<IMobile> mobiles;
+
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.message = "";
+		this.mobiles = new ArrayList<IMobile>();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public String getMessage() {
-		return this.message;
-	}
-
-	/**
-	 * Sets the message.
-	 *
-	 * @param message
-	 *          the new message
-	 */
-	private void setMessage(final String message) {
-		this.message = message;
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadMessage(final String key) {
+	public void loadMap(int id) {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			//this.setMessage(daoHelloWorld.find(key).getMessage());
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			this.setMap(daoMap.find(id).getMapArray());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
+	public void setMap(MotionLessElement[][] map) {
+		this.map = map;
+		this.setChanged();
+		this.notifyObservers();
+	}
+	public MotionLessElement[][] getMap() {
+		return this.map;
+	}
 
+	public ArrayList<IMobile> getMobiles() {
+		return mobiles;
+	}
+	public void setMobiles(ArrayList<IMobile> mobiles) {
+		this.mobiles = mobiles;
+	}
 	/*
 	 * (non-Javadoc)
 	 *
