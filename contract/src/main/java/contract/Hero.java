@@ -11,6 +11,7 @@ public class Hero extends Mobile implements ITouchable {
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("lorann_b.png"));
 		this.setSprites(sprites);
+		this.orders = new ArrayList<ControllerOrder>();
 	}
 	
 	public void attack() {
@@ -25,9 +26,9 @@ public class Hero extends Mobile implements ITouchable {
 	}
 
 	public void removeOrder(ControllerOrder order) {
-		int index = this.orders.indexOf(order);
-		if(index != -1) {
-			this.orders.remove(index);
-		}
+		this.orders.remove(this.orders.indexOf(order));
+	}
+	public boolean isOrder(ControllerOrder order) {
+		return this.orders.contains(order);
 	}
 }

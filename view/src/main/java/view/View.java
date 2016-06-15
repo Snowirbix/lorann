@@ -46,11 +46,23 @@ public class View implements IView, Runnable {
 					return ControllerOrder._UP;
 				}
 			case KeyEvent.VK_LEFT:
-				return ControllerOrder.LEFT;
+				if(tap) {
+					return ControllerOrder.LEFT;
+				} else {
+					return ControllerOrder._LEFT;
+				}
 			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.RIGHT;
+				if(tap) {
+					return ControllerOrder.RIGHT;
+				} else {
+					return ControllerOrder._RIGHT;
+				}
 			case KeyEvent.VK_DOWN:
-				return ControllerOrder.DOWN;
+				if(tap) {
+					return ControllerOrder.DOWN;
+				} else {
+					return ControllerOrder._DOWN;
+				}
 			case KeyEvent.VK_SPACE:
 				return ControllerOrder.ATTACK;
 			default:
