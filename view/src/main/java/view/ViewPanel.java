@@ -76,7 +76,9 @@ class ViewPanel extends JPanel implements Observer {
 			}
 		}
 		for(IMobile mobile : mobiles) {
+			System.out.println(mobile.move());
 			graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, this);
 		}
+		//this.repaint();
 	}
 }

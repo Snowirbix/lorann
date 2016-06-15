@@ -71,12 +71,12 @@ public class Controller implements IController {
 		switch (controllerOrder) {
 			case UP:
 				if(!hero.isOrder(controllerOrder)) {
-					hero.setDirection(0, 1);
+					hero.setDirection(0, -1);
 					hero.addOrder(controllerOrder);
 				}
 				break;
 			case _UP:
-				hero.setDirection(0, -1);
+				hero.setDirection(0, 1);
 				hero.removeOrder(ControllerOrder.UP);
 				break;
 			case LEFT:
@@ -101,18 +101,17 @@ public class Controller implements IController {
 				break;
 			case DOWN:
 				if(!hero.isOrder(controllerOrder)) {
-					hero.setDirection(0, -1);
+					hero.setDirection(0, 1);
 					hero.addOrder(controllerOrder);
 				}
 				break;
 			case _DOWN:
-				hero.setDirection(0, 1);
+				hero.setDirection(0, -1);
 				hero.removeOrder(ControllerOrder.DOWN);
 				break;
 				
 			default:
 				break;
 		}
-		System.out.println(hero.getDirection());
 	}
 }
