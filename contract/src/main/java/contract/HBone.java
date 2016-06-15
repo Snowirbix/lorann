@@ -9,6 +9,7 @@ public class HBone extends MotionLessElement {
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("horizontal_bone.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.BLOCKING);
 	}
 
 }

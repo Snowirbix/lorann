@@ -9,6 +9,7 @@ public class Bone extends MotionLessElement {
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("bone.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.BLOCKING);
 	}
 
 }

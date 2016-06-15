@@ -9,6 +9,7 @@ public class VBone extends MotionLessElement {
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("vertical_bone.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.BLOCKING);
 	}
 
 }

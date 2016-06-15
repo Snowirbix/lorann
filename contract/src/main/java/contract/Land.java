@@ -9,5 +9,6 @@ public class Land extends MotionLessElement {
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("earth.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.PENETRABLE);
 	}
 }

@@ -11,6 +11,7 @@ public class Gate extends MotionLessElement implements ITouchable {
 		sprites.add(new Sprite("gate_closed.png"));
 		sprites.add(new Sprite("gate_open.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.PENETRABLE);
 		//this.open();
 	}
 

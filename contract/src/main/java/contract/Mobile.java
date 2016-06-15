@@ -27,9 +27,17 @@ public class Mobile extends Element implements IMobile {
 		this.direction.y += y;
 	}
 	
+	public boolean isMovePossible() {
+		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y+this.getDirection().y);
+		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
+	}
+	
 	public Point move() {
-		this.position.x += this.direction.x;
-		this.position.y += this.direction.y;
+		if(this.isMovePossible()) {
+			this.position.x += this.direction.x;
+			this.position.y += this.direction.y;
+		}
+		
 		return this.position;
 	}
 
