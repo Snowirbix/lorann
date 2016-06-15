@@ -1,12 +1,13 @@
 package contract;
 
-public class Demons implements ITouchable {
+public class Demons extends Mobile implements ITouchable {
+	
 	private IMobile movementStrat;
 	
-	public Demons() {
-		//this.movementStrat = new Movement1();
+	public Demons(IModel model, int x, int y) {
+		super(model, x, y);
+		
 	}
-	
 	public void onTouch(IMobile activator) {
 		//
 	}

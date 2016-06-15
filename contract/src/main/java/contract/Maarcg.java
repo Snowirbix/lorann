@@ -4,6 +4,11 @@ import java.awt.Image;
 import java.awt.Point;
 
 public class Maarcg implements IMobile{
+	
+	public Maarcg(){
+		
+		
+	}
 
 	public Point move() {
 		// TODO Auto-generated method stub

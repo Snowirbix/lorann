@@ -4,6 +4,11 @@ import java.awt.Image;
 import java.awt.Point;
 
 public class Cargyv implements IMobile{
+	
+	public Cargyv(){
+		
+		
+	}
 
 	public Point move() {
 		// TODO Auto-generated method stub
