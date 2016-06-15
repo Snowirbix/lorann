@@ -1,4 +1,4 @@
-package model;
+package contract;
 
 public class Demons implements ITouchable {
 	private IMobile movementStrat;

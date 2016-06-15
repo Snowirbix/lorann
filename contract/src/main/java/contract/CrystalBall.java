@@ -1,9 +1,10 @@
-package model;
+package contract;
 
 public class CrystalBall extends Mobile implements ITouchable {
 	private Gate gate;
 	
-	public CrystalBall(Gate gate) {
+	public CrystalBall(IModel model, Gate gate) {
+		super(model);
 		this.gate = gate; // composition
 	}
 	

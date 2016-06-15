@@ -1,23 +1,23 @@
-package model;
+package contract;
 
 import java.awt.Image;
 import java.util.ArrayList;
 
 public class Element {
 	private ArrayList<Sprite> sprites;
-	private Model model;
+	private IModel model;
 	private int currentSprite;
 	
-	public Element() {
+	public Element(IModel model) {
 		this.sprites = new ArrayList<Sprite>();
-		this.model = new Model();
+		this.model = model;
 		this.currentSprite = 0;
 	}
 	
-	public Model getModel() {
+	public IModel getModel() {
 		return this.model;
 	}
-	public void setModel(Model model) {
+	public void setModel(IModel model) {
 		this.model = model;
 	}
 	

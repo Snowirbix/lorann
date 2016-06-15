@@ -1,10 +1,10 @@
-package model;
+package contract;
 
 public class Gate extends MotionLessElement implements ITouchable {
 	private boolean state = false;
 	
-	public Gate(char fileSymbol) {
-		super(fileSymbol);
+	public Gate(IModel model, char fileSymbol) {
+		super(model, fileSymbol);
 	}
 
 	public void open() {

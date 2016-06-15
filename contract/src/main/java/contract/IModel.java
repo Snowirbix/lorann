@@ -1,6 +1,9 @@
 package contract;
 
+import java.util.ArrayList;
 import java.util.Observable;
+
+
 
 /**
  * The Interface IModel.
@@ -15,4 +18,7 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+
+	MotionLessElement[][] getMap();
+	
 }

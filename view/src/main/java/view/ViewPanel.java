@@ -5,7 +5,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
-
 /**
  * The Class ViewPanel.
  *
@@ -65,6 +64,7 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		graphics.drawImage(this.getViewFrame().getModel().getMap()[0][0].getSprites().get(0).getImage(), 0, 0, this);
 		//graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
 	}
 }

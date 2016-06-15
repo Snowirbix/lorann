@@ -1,13 +1,13 @@
-package model;
+package contract;
 
 import java.util.ArrayList;
 
 public class Land extends MotionLessElement {
 
-	public Land() {
-		super('E');
+	public Land(IModel model) {
+		super(model, 'E');
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
-		sprites.add(new Sprite("earth.png"));
+		sprites.add(new Sprite("bone.png"));
 		this.setSprites(sprites);
 	}
 }

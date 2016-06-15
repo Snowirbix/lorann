@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.IMobile;
 import contract.IModel;
+import contract.MotionLessElement;
 
 /**
  * The Class Model.
@@ -34,7 +36,7 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void setMapAndMobiles(Map map) {
-		this.map = map.getMapArray();
+		this.map = map.getMapArray(this);
 		this.setMobiles(map.getMobiles());
 		this.setChanged();
 		this.notifyObservers();

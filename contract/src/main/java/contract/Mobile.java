@@ -1,4 +1,4 @@
-package model;
+package contract;
 
 import java.awt.Point;
 
@@ -6,7 +6,8 @@ public class Mobile extends Element implements IMobile {
 	private Point position;
 	private Point direction;
 	
-	public Mobile() {
+	public Mobile(IModel model) {
+		super(model);
 		this.position = new Point(0,0);
 		this.direction = new Point(0,0);
 	}
