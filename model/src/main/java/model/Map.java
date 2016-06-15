@@ -2,11 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import contract.Hero;
-import contract.IMobile;
-import contract.IModel;
-import contract.Land;
-import contract.MotionLessElement;
+import contract.*;
 
 public class Map extends Entity {
 	private int width;
@@ -48,11 +44,28 @@ public class Map extends Entity {
 
 	public MotionLessElement[][] getMapArray(IModel model) {
 		MotionLessElement[][] mapArray =  new MotionLessElement[this.getWidth()][this.getHeight()];
+		Gate gate = new Gate(model);
 		for(int y = 0; y < this.getHeight(); y++) {
     	  for(int x = 0; x < this.getWidth(); x++) {
     		  switch(this.getMap().toCharArray()[x+(this.getWidth()+1)*y]) {
-    		  	case 'X':
-    		  		this.mobiles.add(new Hero(model));
+    		  	case 'L':
+    		  		this.mobiles.add(new Hero(model, x, y));
+    		  		mapArray[x][y] = new Land(model);
+    		  		break;
+    		  	case 'H':
+    		  		mapArray[x][y] = new HBone(model);
+    		  		break;
+    		  	case 'V':
+    		  		mapArray[x][y] = new VBone(model);
+    		  		break;
+    		  	case 'B':
+    		  		mapArray[x][y] = new Bone(model);
+    		  		break;
+    		  	case 'G':
+    		  		mapArray[x][y] = gate;
+    		  		break;
+    		  	case 'C':
+    		  		this.mobiles.add(new CrystalBall(model, gate, x, y));
     		  		mapArray[x][y] = new Land(model);
     		  		break;
     		  	default:

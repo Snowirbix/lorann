@@ -1,10 +1,14 @@
 package view;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
+
+import contract.IMobile;
+import contract.MotionLessElement;
 /**
  * The Class ViewPanel.
  *
@@ -64,7 +68,15 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawImage(this.getViewFrame().getModel().getMap()[0][0].getSprites().get(0).getImage(), 0, 0, this);
-		//graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+		MotionLessElement[][] map = this.getViewFrame().getModel().getMap();
+		ArrayList<IMobile> mobiles = this.getViewFrame().getModel().getMobiles();
+		for(int y = 0; y < map[0].length; y++) {
+			for(int x = 0; x < map.length; x++) {
+				graphics.drawImage(map[x][y].getImage(), x*32, y*32, this);
+			}
+		}
+		for(IMobile mobile : mobiles) {
+			graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, this);
+		}
 	}
 }

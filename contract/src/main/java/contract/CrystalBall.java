@@ -1,10 +1,15 @@
 package contract;
 
+import java.util.ArrayList;
+
 public class CrystalBall extends Mobile implements ITouchable {
 	private Gate gate;
 	
-	public CrystalBall(IModel model, Gate gate) {
-		super(model);
+	public CrystalBall(IModel model, Gate gate, int x, int y) {
+		super(model, x, y);
+		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+		sprites.add(new Sprite("crystal_ball.png"));
+		this.setSprites(sprites);
 		this.gate = gate; // composition
 	}
 	

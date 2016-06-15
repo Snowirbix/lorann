@@ -6,10 +6,10 @@ public class Mobile extends Element implements IMobile {
 	private Point position;
 	private Point direction;
 	
-	public Mobile(IModel model) {
+	public Mobile(IModel model, int x, int y) {
 		super(model);
-		this.position = new Point(0,0);
-		this.direction = new Point(0,0);
+		this.position = new Point(x, y);
+		this.direction = new Point(0, 0);
 	}
 
 	public Point getPosition() {

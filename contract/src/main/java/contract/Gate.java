@@ -1,14 +1,22 @@
 package contract;
 
+import java.util.ArrayList;
+
 public class Gate extends MotionLessElement implements ITouchable {
 	private boolean state = false;
 	
-	public Gate(IModel model, char fileSymbol) {
-		super(model, fileSymbol);
+	public Gate(IModel model) {
+		super(model, 'G');
+		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+		sprites.add(new Sprite("gate_closed.png"));
+		sprites.add(new Sprite("gate_open.png"));
+		this.setSprites(sprites);
+		//this.open();
 	}
 
 	public void open() {
 		this.state = true;
+		this.setCurrentSprite(1);
 	}
 	public boolean getState() {
 		return this.state;

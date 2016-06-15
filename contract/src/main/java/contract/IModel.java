@@ -20,5 +20,7 @@ public interface IModel {
 	Observable getObservable();
 
 	MotionLessElement[][] getMap();
+
+	ArrayList<IMobile> getMobiles();
 	
 }
