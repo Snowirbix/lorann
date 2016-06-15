@@ -12,6 +12,7 @@ public class Map extends Entity {
 		this.setWidth(width);
 		this.setHeight(height);
 		this.setMap(map);
+		this.mobiles = new ArrayList<IMobile>();
 	}
 	
 	public Map() {
@@ -44,8 +45,8 @@ public class Map extends Entity {
 
 		for(int y = 0; y < this.getHeight(); y++) {
     	  for(int x = 0; x < this.getWidth(); x++) {
-    		  switch(this.getMap().toCharArray()[x+this.getHeight()*y]) {
-    		  	case 'L':
+    		  switch(this.getMap().toCharArray()[x+(this.getWidth()+1)*y]) {
+    		  	case 'X':
     		  		this.mobiles.add(new Hero());
     		  		mapArray[x][y] = new Land();
     		  		break;
