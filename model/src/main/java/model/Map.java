@@ -70,7 +70,7 @@ public class Map extends Entity {
     		  		mapArray[x][y] = new Land(model);
     		  		break;
     		  	case 'W':
-    		  		this.mobiles.add(new Demons(model,x,y,(IMobile)new Cargyv()));
+    		  		this.mobiles.add(new Demons(model,x,y,(IStrategy)new Cargyv()));
     		  		mapArray[x][y] = new Land(model);
     		  		break;
     		  	default:

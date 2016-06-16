@@ -3,41 +3,47 @@ package contract;
 import java.awt.Image;
 import java.awt.Point;
 
-public class Cargyv implements IMobile{
+public class Cargyv implements IStrategy{
 	
 	public Cargyv(){
 		
 	}
 
-	public Point move() {
-		int nombreAleatoire = 1 + (int)((Math.random()) * (9 - 1));
-		System.out.println(nombreAleatoire);
-		return null;
-	}
-
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Point getPosition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Point getDirection() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void setDirection(int x, int y) {
-		// TODO Auto-generated method stub
+	public Point move(Point positionDemon) {
+		int randomNumber = 1 + (int)((Math.random()) * (9 - 1));
+		System.out.println(randomNumber);
+		switch(randomNumber){
+		case 1:
+			positionDemon.x = positionDemon.x + 1;
+			return positionDemon;
 		
-	}
-
-	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
+		case 2:
+			positionDemon.x = positionDemon.x - 1;
+			return positionDemon;
 		
+		case 3:
+			positionDemon.y = positionDemon.y + 1;
+			return positionDemon;
+		
+		case 4:
+			positionDemon.y = positionDemon.y - 1;
+			return positionDemon;
+		case 5:
+			positionDemon.x = positionDemon.x + 1;
+			positionDemon.y = positionDemon.y + 1;
+			return positionDemon;
+		case 6:
+			positionDemon.x = positionDemon.x - 1;
+			positionDemon.y = positionDemon.y - 1;
+		case 7:
+			positionDemon.x = positionDemon.x + 1;
+			positionDemon.y = positionDemon.y - 1;
+		case 8:
+			positionDemon.x = positionDemon.x - 1;
+			positionDemon.y = positionDemon.y + 1;
+		default:
+			return positionDemon;
+		}
 	}
 
 }
