@@ -12,6 +12,7 @@ public class Hero extends Mobile implements ITouchable {
 		super(model, 0, 0);
 		this.previousPosition = new Point(this.getPosition().x-1, this.getPosition().y);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+		sprites.add(new Sprite("lorann_br.png"));
 		sprites.add(new Sprite("lorann_b.png"));
 		sprites.add(new Sprite("lorann_bl.png"));
 		sprites.add(new Sprite("lorann_l.png"));
@@ -19,7 +20,6 @@ public class Hero extends Mobile implements ITouchable {
 		sprites.add(new Sprite("lorann_u.png"));
 		sprites.add(new Sprite("lorann_ur.png"));
 		sprites.add(new Sprite("lorann_r.png"));
-		sprites.add(new Sprite("lorann_br.png"));
 		this.setSprites(sprites);
 		this.orders = new ArrayList<ControllerOrder>();
 		this.fireBall = null;
@@ -32,8 +32,46 @@ public class Hero extends Mobile implements ITouchable {
 				this.position.x += this.direction.x;
 				this.position.y += this.direction.y;
 			}
+			switch(this.getDirection().x) {
+				case -1:
+					switch(this.getDirection().y) {
+						case -1:
+							this.setCurrentSprite(4);
+							break;
+						case 0:
+							this.setCurrentSprite(3);
+							break;
+						case 1:
+							this.setCurrentSprite(2);
+					}
+					break;
+				case 0:
+					switch(this.getDirection().y) {
+						case -1:
+							this.setCurrentSprite(5);
+							break;
+						case 1:
+							this.setCurrentSprite(1);
+							break;
+					}
+					break;
+				case 1:
+					switch(this.getDirection().y) {
+						case -1:
+							this.setCurrentSprite(6);
+							break;
+						case 0:
+							this.setCurrentSprite(7);
+							break;
+						case 1:
+							this.setCurrentSprite(0);
+							break;
+					}
+					break;
+			}
+		} else {
+			this.setCurrentSprite((this.getCurrentSprite()+1)%8);
 		}
-		this.setCurrentSprite((this.getCurrentSprite()+1)%8);
 		return this.getPosition();
 	}
 	public void attack() {
