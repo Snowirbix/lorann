@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -98,7 +99,8 @@ class ViewPanel extends JPanel implements Observer {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), 590, map[0].length*32+20);
+		graphics.setFont(new Font("Calibri", Font.PLAIN, 30));
+		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), 1150, map[0].length*64+30);
 		this.repaint();
 	}
 }
