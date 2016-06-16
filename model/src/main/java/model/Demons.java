@@ -19,8 +19,21 @@ public class Demons extends Mobile implements ITouchable {
 		super(model, x, y);
 		this.movementStrat = strat;
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+		sprites.add(new Sprite("monster_1.png"));
+		sprites.add(new Sprite("monster_2.png"));
+		sprites.add(new Sprite("monster_3.png"));
 		sprites.add(new Sprite("monster_4.png"));
 		this.setSprites(sprites);
+		
+		if(strat instanceof Kyracj) {
+			this.setCurrentSprite(0);	
+		} else if(strat instanceof Maarcg) {
+			this.setCurrentSprite(1);				
+		} else if(strat instanceof Arrbarr) {
+			this.setCurrentSprite(2);				
+		} else if(strat instanceof Cargyv) {
+			this.setCurrentSprite(3);				
+		}
 	}
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof FireBall) {
