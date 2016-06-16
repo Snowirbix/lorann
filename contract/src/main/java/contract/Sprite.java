@@ -14,6 +14,11 @@ public class Sprite implements ISprite {
 			this.image = ImageIO.read(new File("../sprite/" + path));
 		} catch (final IOException e) {
 			e.printStackTrace();
+			try {
+				this.image = ImageIO.read(new File("../sprite/earth.png"));
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 	public Image getImage() {
