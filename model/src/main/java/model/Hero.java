@@ -141,6 +141,6 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	}
 
 	public void setScore(int score) {
-		this.score = score;
+		this.score += score;
 	}
 }

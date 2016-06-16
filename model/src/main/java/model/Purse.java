@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import contract.IMobile;
 import contract.IModel;
 import contract.ITouchable;
 import contract.Mobile;
@@ -14,5 +15,12 @@ public class Purse extends Mobile implements ITouchable {
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("purse.png"));
 		this.setSprites(sprites);
+	}
+
+	public boolean onTouch(IMobile activator) {
+		if(activator instanceof Hero) {
+			((Hero) activator).setScore(10);
+		}
+		return false;
 	}
 }
