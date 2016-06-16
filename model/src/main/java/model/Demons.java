@@ -37,6 +37,7 @@ public class Demons extends Mobile implements ITouchable {
 	}
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof FireBall) {
+			((Hero) this.getModel().getMobiles().get(0)).setScore(20);
 			return true;
 		}
 		return false;

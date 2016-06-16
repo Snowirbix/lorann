@@ -15,7 +15,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	private FireBall fireBall;
 	private ArrayList<ControllerOrder> orders;
 	private Point previousPosition;
-	private int score = 0;
+	private int score;
 
 	public ArrayList<ControllerOrder> getOrders() {
 		return orders;
@@ -40,6 +40,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		this.setSprites(sprites);
 		this.orders = new ArrayList<ControllerOrder>();
 		this.fireBall = null;
+		this.score = 0;
 	}
 	
 	public Point move() {
@@ -47,6 +48,12 @@ public class Hero extends Mobile implements ITouchable, IHero {
 			if(this.isMovePossible()) {
 				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
 				this.position.x += this.direction.x;
+				this.position.y += this.direction.y;
+			} else if(this.isMovePossibleX() && this.getDirection().x != 0) {
+				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
+				this.position.x += this.direction.x;
+			} else if(this.isMovePossibleY() && this.getDirection().y != 0) {
+				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
 				this.position.y += this.direction.y;
 			}
 			switch(this.getDirection().x) {
@@ -105,7 +112,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	}
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Demons) {
-			System.out.println("LOST");
+			this.getModel().lose();
 		}
 		return false;
 	}

@@ -25,7 +25,16 @@ public class DAOSave extends DAOEntity<Save> {
 
 	@Override
 	public boolean update(Save entity) {
-		// TODO Auto-generated method stub
+		try {
+			final String sql = "{call setSave(?, ?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setInt(1, entity.getLife());
+			call.setInt(2, entity.getScore());
+			call.execute();
+			return true;
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
@@ -34,9 +43,8 @@ public class DAOSave extends DAOEntity<Save> {
 		Save save = new Save();
 
 		try {
-			final String sql = "{call getScore(?)}";
+			final String sql = "{call getSave()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {

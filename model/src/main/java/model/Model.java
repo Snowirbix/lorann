@@ -17,6 +17,7 @@ public class Model extends Observable implements IModel {
 
 	private MotionLessElement[][] map;
 	private ArrayList<IMobile> mobiles;
+	private Save save;
 
 
 	/**
@@ -24,8 +25,17 @@ public class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		this.mobiles = new ArrayList<IMobile>();
+		this.save = new Save();
 	}
 
+	public void loadSave() {
+		try {
+			DAOSave daoSave = new DAOSave(DBConnection.getInstance().getConnection());
+			this.setSave(daoSave.find(0));
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public void loadMap(int id) {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
@@ -33,6 +43,7 @@ public class Model extends Observable implements IModel {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
+		this.loadSave();
 	}
 
 	public void setMapAndMobiles(Map map) {
@@ -55,9 +66,36 @@ public class Model extends Observable implements IModel {
 	public void setMobiles(ArrayList<IMobile> mobiles) {
 		this.mobiles = mobiles;
 	}
+
+	public Save getSave() {
+		return save;
+	}
+
+	public void setSave(Save save) {
+		this.save = save;
+	}
 	
 	public void win() {
-		//
+		this.getSave().setScore(((Hero) this.getMobiles().get(0)).getScore());
+		DAOSave daoSave;
+		try {
+			daoSave = new DAOSave(DBConnection.getInstance().getConnection());
+			daoSave.update(this.getSave());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.exit(0);
+	}
+	public void lose() {
+		this.getSave().setLife(-1);
+		DAOSave daoSave;
+		try {
+			daoSave = new DAOSave(DBConnection.getInstance().getConnection());
+			daoSave.update(this.getSave());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.exit(0);
 	}
 	/*
 	 * (non-Javadoc)

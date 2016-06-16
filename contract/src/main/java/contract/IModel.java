@@ -24,5 +24,7 @@ public interface IModel {
 	ArrayList<IMobile> getMobiles();
 
 	void win();
+
+	void lose();
 	
 }
