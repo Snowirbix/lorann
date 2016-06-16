@@ -8,6 +8,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 import contract.IMobile;
+import contract.ITouchable;
 import contract.MotionLessElement;
 /**
  * The Class ViewPanel.
@@ -77,6 +78,14 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		for(IMobile mobile : mobiles) {
 			mobile.move();
+			if(map[mobile.getPosition().x][mobile.getPosition().y] instanceof ITouchable) {
+				((ITouchable) map[mobile.getPosition().x][mobile.getPosition().y]).onTouch(mobile);
+			}
+			for(IMobile mobile2 : mobiles) {
+				if(mobile2 instanceof ITouchable && mobile2.getPosition().x == mobile.getPosition().x && mobile2.getPosition().y == mobile.getPosition().y) {
+					((ITouchable) mobile2).onTouch(mobile);
+				}
+			}
 			graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, this);
 		}
 		try {

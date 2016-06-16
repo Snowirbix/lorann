@@ -13,10 +13,10 @@ public class CrystalBall extends Mobile implements ITouchable {
 		this.gate = gate; // composition
 	}
 	
-	public void onTouch(IMobile activator) { // fire when a mobile is on
+	public void onTouch(IMobile activator) {
 		if(activator instanceof Hero) { // check that the mobile is the hero
 			this.gate.open(); // when the hero get this ball, he opens the gate
-			// remove the ball
+			//this.getModel().getMobiles().remove(this);// remove the ball
 		}
 	}
 }
