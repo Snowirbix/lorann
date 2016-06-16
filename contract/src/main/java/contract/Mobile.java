@@ -3,8 +3,8 @@ package contract;
 import java.awt.Point;
 
 public class Mobile extends Element implements IMobile {
-	private Point position;
-	private Point direction;
+	protected Point position;
+	protected Point direction;
 	
 	public Mobile(IModel model, int x, int y) {
 		super(model);
@@ -33,11 +33,12 @@ public class Mobile extends Element implements IMobile {
 	}
 	
 	public Point move() {
-		if(this.isMovePossible()) {
-			this.position.x += this.direction.x;
-			this.position.y += this.direction.y;
+		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
+			if(this.isMovePossible()) {
+				this.position.x += this.direction.x;
+				this.position.y += this.direction.y;
+			}
 		}
-		
 		return this.position;
 	}
 

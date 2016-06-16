@@ -116,7 +116,7 @@ public class Controller implements IController {
 				}
 				break;
 			case _ATTACK:
-				hero.removeOrder(controllerOrder);
+				hero.removeOrder(controllerOrder.ATTACK);
 				break;
 			default:
 				break;
