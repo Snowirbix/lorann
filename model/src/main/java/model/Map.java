@@ -72,6 +72,7 @@ public class Map extends Entity {
     		  	case 'P':
     		  		this.mobiles.add(new Purse(model, x, y));
     		  		mapArray[x][y] = new Land(model);
+    		  		break;
     		  	case 'W':
     		  		this.mobiles.add(new Demons(model,x,y,(IStrategy)new Cargyv()));
     		  		mapArray[x][y] = new Land(model);
