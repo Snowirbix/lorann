@@ -22,6 +22,10 @@ public class FireBall extends Mobile implements ITouchable {
 		this.setDirection(_x - x, _y - y);
 	}
 	public boolean onTouch(IMobile activator) {
+		if(activator instanceof Hero) {
+			((Hero) activator).setFireBall(null);
+			return true;
+		}
 		return false;
 	}
 	public Point move() {
