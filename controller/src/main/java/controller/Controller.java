@@ -1,8 +1,8 @@
 package controller;
 
 import contract.ControllerOrder;
-import contract.Hero;
 import contract.IController;
+import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
 import contract.IView;
@@ -67,7 +67,7 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		Hero hero = (Hero) this.model.getMobiles().get(0);
+		IHero hero = (IHero) this.model.getMobiles().get(0);
 		switch (controllerOrder) {
 			case UP:
 				if(!hero.isOrder(controllerOrder)) {

@@ -1,6 +1,13 @@
-package contract;
+package model;
 
 import java.util.ArrayList;
+
+import contract.IMobile;
+import contract.IModel;
+import contract.ITouchable;
+import contract.MotionLessElement;
+import contract.Permeability;
+import contract.Sprite;
 
 public class Gate extends MotionLessElement implements ITouchable {
 	private boolean state = false;
@@ -23,11 +30,13 @@ public class Gate extends MotionLessElement implements ITouchable {
 		return this.state;
 	}
 	
-	public void onTouch(IMobile activator) {
+	public boolean onTouch(IMobile activator) {
 		if(getState()) {
 			System.out.println("win");
+			return true;
 		} else {
 			System.out.println("try again");
+			return false;
 		}
 	}
 }

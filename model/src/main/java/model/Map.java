@@ -69,6 +69,9 @@ public class Map extends Entity {
     		  		this.mobiles.add(new CrystalBall(model, gate, x, y));
     		  		mapArray[x][y] = new Land(model);
     		  		break;
+    		  	case 'P':
+    		  		this.mobiles.add(new Purse(model, x, y));
+    		  		mapArray[x][y] = new Land(model);
     		  	case 'W':
     		  		this.mobiles.add(new Demons(model,x,y,(IStrategy)new Cargyv()));
     		  		mapArray[x][y] = new Land(model);

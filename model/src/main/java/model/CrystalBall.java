@@ -1,6 +1,12 @@
-package contract;
+package model;
 
 import java.util.ArrayList;
+
+import contract.IMobile;
+import contract.IModel;
+import contract.ITouchable;
+import contract.Mobile;
+import contract.Sprite;
 
 public class CrystalBall extends Mobile implements ITouchable {
 	private Gate gate;
@@ -13,10 +19,11 @@ public class CrystalBall extends Mobile implements ITouchable {
 		this.gate = gate; // composition
 	}
 	
-	public void onTouch(IMobile activator) {
+	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Hero) { // check that the mobile is the hero
 			this.gate.open(); // when the hero get this ball, he opens the gate
-			//this.getModel().getMobiles().remove(this);// remove the ball
+			return true; // remove the ball
 		}
+		return false;
 	}
 }

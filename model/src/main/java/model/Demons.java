@@ -1,7 +1,15 @@
-package contract;
+package model;
 
 import java.awt.Point;
 import java.util.ArrayList;
+
+import contract.IMobile;
+import contract.IModel;
+import contract.IStrategy;
+import contract.ITouchable;
+import contract.Mobile;
+import contract.Permeability;
+import contract.Sprite;
 
 public class Demons extends Mobile implements ITouchable {
 	
@@ -14,8 +22,11 @@ public class Demons extends Mobile implements ITouchable {
 		sprites.add(new Sprite("monster_4.png"));
 		this.setSprites(sprites);
 	}
-	public void onTouch(IMobile activator) {
-		//
+	public boolean onTouch(IMobile activator) {
+		if(activator instanceof FireBall) {
+			return true;
+		}
+		return false;
 	}
 	public Point move(){
 		Point newPosition = this.movementStrat.move(new Point(position.x, position.y));

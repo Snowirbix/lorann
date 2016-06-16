@@ -1,7 +1,13 @@
-package contract;
+package model;
 
 import java.awt.Point;
 import java.util.ArrayList;
+
+import contract.IMobile;
+import contract.IModel;
+import contract.ITouchable;
+import contract.Mobile;
+import contract.Sprite;
 
 public class FireBall extends Mobile implements ITouchable {
 	public FireBall(IModel model, int x, int y, int _x, int _y) {
@@ -15,8 +21,8 @@ public class FireBall extends Mobile implements ITouchable {
 		this.setSprites(sprites);
 		this.setDirection(_x - x, _y - y);
 	}
-	public void onTouch(IMobile activator) {
-		//
+	public boolean onTouch(IMobile activator) {
+		return false;
 	}
 	public Point move() {
 		super.move();

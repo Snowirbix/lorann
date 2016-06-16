@@ -1,6 +1,11 @@
-package contract;
+package model;
 
 import java.util.ArrayList;
+
+import contract.IModel;
+import contract.MotionLessElement;
+import contract.Permeability;
+import contract.Sprite;
 
 public class HBone extends MotionLessElement {
 

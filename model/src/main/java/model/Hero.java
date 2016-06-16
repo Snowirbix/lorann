@@ -1,9 +1,17 @@
-package contract;
+package model;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class Hero extends Mobile implements ITouchable {
+import contract.ControllerOrder;
+import contract.IHero;
+import contract.IMobile;
+import contract.IModel;
+import contract.ITouchable;
+import contract.Mobile;
+import contract.Sprite;
+
+public class Hero extends Mobile implements ITouchable, IHero {
 	private FireBall fireBall;
 	private ArrayList<ControllerOrder> orders;
 	private Point previousPosition;
@@ -86,8 +94,11 @@ public class Hero extends Mobile implements ITouchable {
 		this.getModel().getMobiles().remove(this.fireBall);
 		this.fireBall = null;
 	}
-	public void onTouch(IMobile activator) {
-		//
+	public boolean onTouch(IMobile activator) {
+		if(activator instanceof Demons) {
+			return true;
+		}
+		return false;
 	}
 	public void addOrder(ControllerOrder order) {
 		this.orders.add(order);
