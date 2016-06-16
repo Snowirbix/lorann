@@ -64,7 +64,11 @@ public class View implements IView, Runnable {
 					return ControllerOrder._DOWN;
 				}
 			case KeyEvent.VK_SPACE:
-				return ControllerOrder.ATTACK;
+				if(tap) {
+					return ControllerOrder.ATTACK;
+				} else {
+					return ControllerOrder._ATTACK;
+				}
 			default:
 				return ControllerOrder.NOOP;
 		}

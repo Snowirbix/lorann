@@ -16,8 +16,12 @@ public class Hero extends Mobile implements ITouchable {
 	
 	public void attack() {
 		this.fireBall = new FireBall(this.getModel(), this.getPosition().x, this.getPosition().y);
+		this.getModel().getMobiles().add(this.fireBall);
 	}
-	
+	public void disengage() {
+		this.getModel().getMobiles().remove(this.getModel().getMobiles().indexOf(this.fireBall));
+		this.fireBall = null;
+	}
 	public void onTouch(IMobile activator) {
 		//
 	}

@@ -11,10 +11,11 @@ public enum ControllerOrder {
 	LEFT,
 	RIGHT,
 	DOWN,
+	ATTACK,
 	_UP,
 	_LEFT,
 	_RIGHT,
 	_DOWN,
-	NOOP,
-	ATTACK
+	_ATTACK,
+	NOOP
 }

@@ -109,7 +109,15 @@ public class Controller implements IController {
 				hero.setDirection(0, -1);
 				hero.removeOrder(ControllerOrder.DOWN);
 				break;
-				
+			case ATTACK:
+				if(!hero.isOrder(controllerOrder)) {
+					hero.attack();
+					hero.addOrder(controllerOrder);
+				}
+				break;
+			case _ATTACK:
+				hero.removeOrder(controllerOrder);
+				break;
 			default:
 				break;
 		}
