@@ -22,9 +22,9 @@ import contract.IMobile;
  */
 public class ContractTest {
 	
-	private Gate gate;
-	private Bone bone;
-	private Hero hero;
+//	private Gate gate;
+//	private Bone bone;
+//	private Hero hero;
 	private ArrayList<ControllerOrder> orders;
 	
 //	@Test
@@ -32,14 +32,6 @@ public class ContractTest {
 //		
 //	}
 	
-	@Test
-	public void open() {
-		this.gate = new Gate(null);
-		this.gate.open();
-		Assert.assertEquals(true, this.gate.getState());
-	}
-	
-
 //	public void testBone(IModel model) {
 //		Bone bone = new Bone(null);
 //		super(model, 'V');

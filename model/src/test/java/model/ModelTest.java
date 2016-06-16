@@ -17,6 +17,9 @@ import org.junit.Test;
  */
 public class ModelTest {
 	private Model model;
+	private Gate gate;
+	private Bone bone;
+	private Hero hero;
 
 	/**
 	 * Sets the up before class.
@@ -81,5 +84,13 @@ public class ModelTest {
 		this.model.loadMessage("ID");
 		Assert.assertEquals("Salamat pagi dunia", this.model.getMessage());*/
 	}
+	
+	@Test
+	public void open() {
+		this.gate = new Gate(null);
+		this.gate.open();
+		Assert.assertEquals(true, this.gate.getState());
+	}
+
 
 }
