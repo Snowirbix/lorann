@@ -55,6 +55,10 @@ public class Model extends Observable implements IModel {
 	public void setMobiles(ArrayList<IMobile> mobiles) {
 		this.mobiles = mobiles;
 	}
+	
+	public void win() {
+		//
+	}
 	/*
 	 * (non-Javadoc)
 	 *

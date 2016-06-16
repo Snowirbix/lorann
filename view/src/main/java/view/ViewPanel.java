@@ -98,7 +98,7 @@ class ViewPanel extends JPanel implements Observer {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), 590, 370);
+		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), 590, map[0].length*32+20);
 		this.repaint();
 	}
 }
