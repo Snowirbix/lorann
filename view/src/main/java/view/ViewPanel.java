@@ -74,7 +74,7 @@ class ViewPanel extends JPanel implements Observer {
 		ArrayList<IMobile> mobiles = this.getViewFrame().getModel().getMobiles();
 		for(int y = 0; y < map[0].length; y++) {
 			for(int x = 0; x < map.length; x++) {
-				graphics.drawImage(map[x][y].getImage(), x*32, y*32, this);
+				graphics.drawImage(map[x][y].getImage(), x*64, y*64, 64, 64, this);
 			}
 		}
 		for(int i = mobiles.size()-1; i >= 0; i--) {
@@ -91,7 +91,7 @@ class ViewPanel extends JPanel implements Observer {
 					}
 				}
 			}
-			graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, this);
+			graphics.drawImage(mobile.getImage(), mobile.getPosition().x*64, mobile.getPosition().y*64, 64, 64, this);
 		}
 		try {
 			Thread.sleep(100);
