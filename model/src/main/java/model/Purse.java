@@ -20,6 +20,7 @@ public class Purse extends Mobile implements ITouchable {
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Hero) {
 			((Hero) activator).setScore(10);
+			return true;
 		}
 		return false;
 	}
