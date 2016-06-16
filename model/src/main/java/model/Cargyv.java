@@ -13,7 +13,6 @@ public class Cargyv implements IStrategy{
 
 	public Point move(Point positionDemon) {
 		int randomNumber = 1 + (int)((Math.random()) * (9 - 1));
-		System.out.println(randomNumber);
 		switch(randomNumber){
 		case 1:
 			positionDemon.x = positionDemon.x + 1;
