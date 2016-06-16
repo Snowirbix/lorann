@@ -22,5 +22,7 @@ public interface IModel {
 	MotionLessElement[][] getMap();
 
 	ArrayList<IMobile> getMobiles();
+
+	void win();
 	
 }
