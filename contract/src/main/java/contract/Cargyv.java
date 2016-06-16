@@ -3,7 +3,7 @@ package contract;
 import java.awt.Image;
 import java.awt.Point;
 
-public class Cargyv extends Mobile implements IMobile{
+public class Cargyv implements IMobile{
 	
 	public Cargyv(){
 		
