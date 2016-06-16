@@ -14,6 +14,7 @@ public class Arrbarr implements IStrategy{
 
 	public Point move(Point positionDemon) {
 		
+		
 		return positionDemon;
 	}
 

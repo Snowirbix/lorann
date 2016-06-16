@@ -5,6 +5,7 @@ import java.awt.Point;
 
 import contract.IMobile;
 import contract.IStrategy;
+import contract.Mobile;
 
 public class Maarcg implements IStrategy{
 	
@@ -13,8 +14,13 @@ public class Maarcg implements IStrategy{
 		
 	}
 
-	public Point move(Point positionDemon) {
+	public Point move(Point positionDemon, Model model) {
+		//Point positionHero = this.getModel().getMobiles().get(0);
 		
+		return positionDemon;
+	}
+
+	public Point move(Point positionDemon) {
 		return positionDemon;
 	}
 
