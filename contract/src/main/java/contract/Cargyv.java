@@ -3,15 +3,15 @@ package contract;
 import java.awt.Image;
 import java.awt.Point;
 
-public class Cargyv implements IMobile{
+public class Cargyv extends Mobile implements IMobile{
 	
 	public Cargyv(){
-		
 		
 	}
 
 	public Point move() {
-		// TODO Auto-generated method stub
+		int nombreAleatoire = 1 + (int)((Math.random()) * (9 - 1));
+		System.out.println(nombreAleatoire);
 		return null;
 	}
 

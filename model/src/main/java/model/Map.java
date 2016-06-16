@@ -69,6 +69,10 @@ public class Map extends Entity {
     		  		this.mobiles.add(new CrystalBall(model, gate, x, y));
     		  		mapArray[x][y] = new Land(model);
     		  		break;
+    		  	case 'W':
+    		  		this.mobiles.add(new Demons(model,x,y,(IMobile)new Cargyv()));
+    		  		mapArray[x][y] = new Land(model);
+    		  		break;
     		  	default:
     		  		mapArray[x][y] = new Land(model);
     		  }
