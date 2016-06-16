@@ -15,7 +15,7 @@ public class Maarcg implements IStrategy{
 
 	public Point move(Point positionDemon) {
 		
-		return null;
+		return positionDemon;
 	}
 
 

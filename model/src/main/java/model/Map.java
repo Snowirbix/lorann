@@ -80,12 +80,15 @@ public class Map extends Entity {
     		  	case 'Z':
     		  		this.mobiles.add(new Demons(model,x,y,(IStrategy)new Arrbarr()));
     		  		mapArray[x][y] = new Land(model);
+    		  		break;
     		  	case 'M':
     		  		this.mobiles.add(new Demons(model, x, y, (IStrategy)new Maarcg()));
     		  		mapArray[x][y] = new Land(model);
+    		  		break;
     		  	case 'K':
     		  		this.mobiles.add(new Demons(model, x, y, (IStrategy) new Kyracj()));
     		  		mapArray[x][y] = new Land(model);
+    		  		break;
     		  	default:
     		  		mapArray[x][y] = new Land(model);
     		  }
