@@ -7,6 +7,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import contract.IHero;
 import contract.IMobile;
 import contract.ITouchable;
 import contract.MotionLessElement;
@@ -97,6 +98,7 @@ class ViewPanel extends JPanel implements Observer {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), 590, 370);
 		this.repaint();
 	}
 }

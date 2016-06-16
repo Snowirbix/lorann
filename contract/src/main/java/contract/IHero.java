@@ -6,4 +6,5 @@ public interface IHero {
 	public boolean isOrder(ControllerOrder order);
 	public void setDirection(int x, int y);
 	public void attack();
+	public int getScore();
 }

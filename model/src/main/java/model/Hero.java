@@ -15,6 +15,15 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	private FireBall fireBall;
 	private ArrayList<ControllerOrder> orders;
 	private Point previousPosition;
+	private int score = 0;
+
+	public ArrayList<ControllerOrder> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(ArrayList<ControllerOrder> orders) {
+		this.orders = orders;
+	}
 
 	public Hero(IModel model) {
 		super(model, 0, 0);
@@ -96,7 +105,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	}
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Demons) {
-			return true;
+			System.out.println("LOST");
 		}
 		return false;
 	}
@@ -125,5 +134,13 @@ public class Hero extends Mobile implements ITouchable, IHero {
 
 	public void setPreviousPosition(Point previousPosition) {
 		this.previousPosition = previousPosition;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 }
