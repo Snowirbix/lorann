@@ -95,7 +95,7 @@ class ViewPanel extends JPanel implements Observer {
 			graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, 32, 32, this);
 		}
 		try {
-			Thread.sleep(100);
+			Thread.sleep(150);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
