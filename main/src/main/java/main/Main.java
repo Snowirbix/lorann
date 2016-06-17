@@ -20,10 +20,6 @@ public abstract class Main {
 	 */
 	public static void main(final String[] args) {
 		final Model model = new Model();
-		final View view = new View(model);
-		final Controller controller = new Controller(view, model);
-		view.setController(controller);
-		//controller.control();
 		
 		int menu  = 0;
 		do
@@ -44,6 +40,10 @@ public abstract class Main {
 			sc.close();
 			
 		}while (menu == 0);
+		
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
+		view.setController(controller);
 			
 	}
 }
