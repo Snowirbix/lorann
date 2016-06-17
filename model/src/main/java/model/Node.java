@@ -1,10 +1,13 @@
 package model;
 
-/*public class Node {
+import java.awt.Point;
+
+public class Node {
 	private Point pos;
 	private int cost;
 	private int heuristique;
 	
-	public Node(int x, int y)
+	public Node(int x, int y) {
+		//
+	}
 }
-*/
