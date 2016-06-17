@@ -24,6 +24,7 @@ public class Demons extends Mobile implements ITouchable {
 		sprites.add(new Sprite("monster_3.png"));
 		sprites.add(new Sprite("monster_4.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.BLOCKING);
 		
 		if(strat instanceof Kyracj) {
 			this.setCurrentSprite(0);	
@@ -53,5 +54,4 @@ public class Demons extends Mobile implements ITouchable {
 		}
 		return this.getPosition();
 	}
-	
 }

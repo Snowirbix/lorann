@@ -32,26 +32,15 @@ public abstract class Mobile extends Element implements IMobile {
 		this.direction.y += y;
 	}
 	
-	public boolean isMovePossible(int dir_x, int dir_y) {
-		Point newPosition = new Point(this.getPosition().x+dir_x, this.getPosition().y+dir_y);
-		for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
+	public boolean isMovePossible(int pos_x, int pos_y) {
+		/*for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
 			IMobile mobile = this.getModel().getMobiles().get(i);
-			if(mobile.getPosition().distance(newPosition) == 0.0 && mobile.getPermeability() == Permeability.BLOCKING) {
+			if(mobile.getPosition().x == getPosition().x && mobile.getPosition().y == getPosition().y && mobile.getPermeability() == Permeability.BLOCKING && mobile != this) {
 				return false;
 			}
-		}
-		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
+		}*/
+		return (this.getModel().getMap()[pos_x][pos_y].getPermeability() != Permeability.BLOCKING);
 	}
-
-	/*public boolean isMovePossibleX() {
-		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y);
-		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
-	}
-	
-	public boolean isMovePossibleY() {
-		Point newPosition = new Point(this.getPosition().x, this.getPosition().y+this.getDirection().y);
-		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
-	}*/
 	
 	public abstract Point move();
 
