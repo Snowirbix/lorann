@@ -10,4 +10,5 @@ public interface IHero {
 	public void attack();
 	public int getScore();
 	public Point getPosition();
+	public Point getDirection();
 }
