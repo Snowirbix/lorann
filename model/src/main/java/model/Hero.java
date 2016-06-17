@@ -14,8 +14,8 @@ import contract.Sprite;
 public class Hero extends Mobile implements ITouchable, IHero {
 	private FireBall fireBall;
 	private ArrayList<ControllerOrder> orders;
-	private Point previousPosition;
 	private int score;
+	protected Point previousPosition;
 
 	public ArrayList<ControllerOrder> getOrders() {
 		return orders;

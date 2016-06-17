@@ -2,18 +2,8 @@ package contract;
 
 
 public abstract class MotionLessElement extends Element {
-	private char fileSymbol;
 	
-	public MotionLessElement(IModel model, char fileSymbol) {
+	public MotionLessElement(IModel model) {
 		super(model);
-		this.fileSymbol = fileSymbol;
-	}
-
-	public char getFileSymbol() {
-		return fileSymbol;
-	}
-
-	public void setFileSymbol(char fileSymbol) {
-		this.fileSymbol = fileSymbol;
 	}
 }

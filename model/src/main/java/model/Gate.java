@@ -13,7 +13,7 @@ public class Gate extends MotionLessElement implements ITouchable {
 	private boolean state = false;
 	
 	public Gate(IModel model) {
-		super(model, 'G');
+		super(model);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("gate_closed.png"));
 		sprites.add(new Sprite("gate_open.png"));

@@ -10,7 +10,7 @@ import contract.Sprite;
 public class VBone extends MotionLessElement {
 
 	public VBone(IModel model) {
-		super(model, 'V');
+		super(model);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("vertical_bone.png"));
 		this.setSprites(sprites);

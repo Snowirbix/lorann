@@ -10,7 +10,7 @@ import contract.Sprite;
 public class Bone extends MotionLessElement {
 
 	public Bone(IModel model) {
-		super(model, 'V');
+		super(model);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("bone.png"));
 		this.setSprites(sprites);

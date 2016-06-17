@@ -17,4 +17,5 @@ public interface IMobile {
 	public void setPosition(int x, int y);
 
 	public Permeability getPermeability();
+
 }

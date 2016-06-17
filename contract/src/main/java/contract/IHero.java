@@ -12,4 +12,5 @@ public interface IHero {
 	public Point getPosition();
 	public Point getDirection();
 	public void setPreviousPosition(Point v);
+	public Point getPreviousPosition();
 }

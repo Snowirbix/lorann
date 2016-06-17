@@ -10,7 +10,7 @@ import contract.Sprite;
 public class Land extends MotionLessElement {
 
 	public Land(IModel model) {
-		super(model, 'E');
+		super(model);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("earth.png"));
 		this.setSprites(sprites);

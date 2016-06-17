@@ -31,7 +31,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.direction.x += x;
 		this.direction.y += y;
 	}
-	
+
 	public boolean isMovePossible(int pos_x, int pos_y) {
 		if(this.getPermeability() == Permeability.BLOCKING) {
 			for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
