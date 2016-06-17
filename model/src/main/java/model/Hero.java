@@ -8,6 +8,7 @@ import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
 import contract.ITouchable;
+import contract.Permeability;
 import contract.Sprite;
 
 public class Hero extends Mobile implements ITouchable, IHero {
@@ -40,6 +41,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		this.orders = new ArrayList<ControllerOrder>();
 		this.fireBall = null;
 		this.score = 0;
+		this.setPermeability(Permeability.PENETRABLE);
 	}
 	
 	public Point move() {
@@ -112,8 +114,6 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Demons) {
 			this.getModel().lose();
-		} else if(activator instanceof FireBall) {
-			this.getModel().getMobiles().remove(activator);
 		}
 		return false;
 	}
