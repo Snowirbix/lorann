@@ -27,7 +27,7 @@ public class FireBall extends Mobile implements ITouchable {
 			((Hero) activator).setFireBall(null);
 			return true;
 		} else if(activator instanceof Demons) {
-			this.getModel().getMobiles().remove(activator);
+			this.getModel().getMobiles().remove(activator);//
 		}
 		return false;
 	}
