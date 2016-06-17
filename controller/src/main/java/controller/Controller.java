@@ -60,11 +60,25 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
+	private IModel getModel() {
+		return this.model;
+	}
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
+	public void run() {
+		while(true) {
+			this.getModel().setChange();
+			try {
+				Thread.sleep(150);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		if(!this.model.getMobiles().isEmpty()) {
 			IHero hero = (IHero) this.model.getMobiles().get(0);

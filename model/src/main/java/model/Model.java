@@ -49,8 +49,6 @@ public class Model extends Observable implements IModel {
 	public void setMapAndMobiles(Map map) {
 		this.map = map.getMapArray(this);
 		this.setMobiles(map.getMobiles());
-		this.setChanged();
-		this.notifyObservers();
 	}
 	
 	public void setMap(MotionLessElement[][] map) {
@@ -102,6 +100,11 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getObservable()
 	 */
+	public void setChange() {
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
 	public Observable getObservable() {
 		return this;
 	}

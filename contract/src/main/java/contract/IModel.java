@@ -28,5 +28,7 @@ public interface IModel {
 	void win();
 
 	void lose();
+
+	void setChange();
 	
 }
