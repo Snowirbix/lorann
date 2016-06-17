@@ -27,7 +27,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 
 	public Hero(IModel model) {
 		super(model, 0, 0);
-		this.previousPosition = new Point(this.getPosition().x-1, this.getPosition().y);
+		this.previousPosition = new Point(0, 0);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.add(new Sprite("lorann_br.png"));
 		sprites.add(new Sprite("lorann_b.png"));

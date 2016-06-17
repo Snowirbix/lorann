@@ -33,7 +33,6 @@ public class Gate extends MotionLessElement implements ITouchable {
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Hero && getState()) {
 			this.getModel().win();
-			return true;
 		} else if(activator instanceof Hero) {
 			this.getModel().lose();
 		}

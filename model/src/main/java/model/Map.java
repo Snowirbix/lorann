@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 import contract.*;
@@ -51,6 +52,7 @@ public class Map extends Entity {
     		  switch(this.getMap().toCharArray()[x+(this.getWidth()+1)*y]) {
     		  	case 'L':
     		  		this.mobiles.get(0).setPosition(x, y);
+    		  		((Hero) this.mobiles.get(0)).setPreviousPosition(new Point(x-1, y));
     		  		mapArray[x][y] = new Land(model);
     		  		break;
     		  	case 'H':

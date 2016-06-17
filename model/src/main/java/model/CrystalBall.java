@@ -24,7 +24,7 @@ public class CrystalBall extends Mobile implements ITouchable {
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Hero) { // check that the mobile is the hero
 			this.gate.open(); // when the hero get this ball, he opens the gate
-			return true; // remove the ball
+			return true; // remove the crystalBall
 		}
 		return false;
 	}

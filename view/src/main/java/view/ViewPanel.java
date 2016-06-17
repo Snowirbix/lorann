@@ -85,11 +85,14 @@ class ViewPanel extends JPanel implements Observer {
 				if(map[mobile.getPosition().x][mobile.getPosition().y] instanceof ITouchable) {
 					((ITouchable) map[mobile.getPosition().x][mobile.getPosition().y]).onTouch(mobile);
 				}
+			}
+			for(int i = mobiles.size()-1; i >= 0; i--) {
+				IMobile mobile = mobiles.get(i);
 				for(int j = mobiles.size()-1; j >= 0; j--) {
 					IMobile mobile2 = mobiles.get(j);
 					if(mobile2 instanceof ITouchable && mobile2.getPosition().x == mobile.getPosition().x && mobile2.getPosition().y == mobile.getPosition().y) {
 						if(((ITouchable) mobile2).onTouch(mobile)) {
-							mobiles.remove(j);
+								mobiles.remove(mobile2);
 						}
 					}
 				}

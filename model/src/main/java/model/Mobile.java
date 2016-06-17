@@ -33,10 +33,12 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	public boolean isMovePossible(int pos_x, int pos_y) {
-		for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
-			IMobile mobile = this.getModel().getMobiles().get(i);
-			if(mobile.getPosition().x == pos_x && mobile.getPosition().y == pos_y && mobile.getPermeability() == Permeability.BLOCKING && mobile != this) {
-				return false;
+		if(this.getPermeability() == Permeability.BLOCKING) {
+			for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
+				IMobile mobile = this.getModel().getMobiles().get(i);
+				if(mobile.getPosition().x == pos_x && mobile.getPosition().y == pos_y && mobile.getPermeability() == Permeability.BLOCKING && mobile != this) {
+					return false;
+				}
 			}
 		}
 		return (this.getModel().getMap()[pos_x][pos_y].getPermeability() != Permeability.BLOCKING);
