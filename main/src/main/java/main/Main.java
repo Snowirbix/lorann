@@ -3,7 +3,6 @@ package main;
 import controller.Controller;
 import model.Model;
 import view.View;
-//Ceci importe la classe Scanner du package java.util
 import java.util.Scanner; 
 
 /**
@@ -26,7 +25,7 @@ public abstract class Main {
 		view.setController(controller);
 		//controller.control();
 		
-		int test  = 0;
+		int menu  = 0;
 		do
 		{
 			System.out.println("Choose your level (1-6) :");
@@ -34,14 +33,16 @@ public abstract class Main {
 			int str = sc.nextInt();
 			
 			if(str >= 0 && str <= 6) {
+				System.out.println("Loading level " + str);
 				model.loadMap(str);
-				test = 1;
+				menu = 1;
 			}
-			else{
+			else {
 				System.out.println("Error !");
+				System.out.println("Nombre incorrect : " + str);
 			}
 			
-		}while (test == 0);
+		}while (menu == 0);
 			
 	}
 }
