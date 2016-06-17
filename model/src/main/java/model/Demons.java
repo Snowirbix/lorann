@@ -3,6 +3,7 @@ package model;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
 import contract.IStrategy;
@@ -43,7 +44,7 @@ public class Demons extends Mobile implements ITouchable {
 		return false;
 	}
 	public Point move(){
-		Point newPosition = this.movementStrat.move(new Point(position.x, position.y));
+		Point newPosition = this.movementStrat.move(new Point(position.x, position.y), ((IHero) this.getModel().getMobiles().get(0)));
 		if(this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING){
 			this.setPosition(newPosition);
 		}

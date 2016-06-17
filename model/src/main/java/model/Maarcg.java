@@ -3,6 +3,7 @@ package model;
 import java.awt.Image;
 import java.awt.Point;
 
+import contract.IHero;
 import contract.IMobile;
 import contract.IStrategy;
 import contract.Mobile;
@@ -22,6 +23,11 @@ public class Maarcg implements IStrategy{
 
 	public Point move(Point positionDemon) {
 		return positionDemon;
+	}
+
+	public Point move(Point positionDemon, IHero hero) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

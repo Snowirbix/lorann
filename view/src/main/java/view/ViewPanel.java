@@ -100,7 +100,7 @@ class ViewPanel extends JPanel implements Observer {
 			e.printStackTrace();
 		}
 		graphics.setFont(new Font("Calibri", Font.PLAIN, 30));
-		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), 1150, map[0].length*64+30);
+		graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), map.length*32-30, map[0].length*32+30);
 		this.repaint();
 	}
 }

@@ -1,5 +1,7 @@
 package contract;
 
+import java.awt.Point;
+
 public interface IHero {
 	public void addOrder(ControllerOrder order);
 	public void removeOrder(ControllerOrder order);
@@ -7,4 +9,5 @@ public interface IHero {
 	public void setDirection(int x, int y);
 	public void attack();
 	public int getScore();
+	public Point getPosition();
 }

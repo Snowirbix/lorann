@@ -2,7 +2,8 @@ package contract;
 
 import java.awt.Point;
 
+
 public interface IStrategy {
 	
-	public Point move(Point positionDemon);
+	public Point move(Point positionDemon, IHero hero);
 }
