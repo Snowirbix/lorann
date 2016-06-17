@@ -7,47 +7,23 @@ import contract.IStrategy;
 
 public class Cargyv implements IStrategy{
 	
+	private Point direction;
+	private Point lastPos;
 	public Cargyv(){
-		
+		direction = new Point(1, 1);
+		lastPos = new Point(0, 0);
 	}
 
 	public Point move(Point positionDemon, IHero hero) {
-		int randomNumber = 1 + (int)((Math.random()) * (9 - 1));
-		switch(randomNumber){
-		case 1:
-			positionDemon.x = positionDemon.x + 1;
-			break;
-		
-		case 2:
-			positionDemon.x = positionDemon.x - 1;
-			break;
-		
-		case 3:
-			positionDemon.y = positionDemon.y + 1;
-			break;
-		
-		case 4:
-			positionDemon.y = positionDemon.y - 1;
-			break;
-		case 5:
-			positionDemon.x = positionDemon.x + 1;
-			positionDemon.y = positionDemon.y + 1;
-			break;
-		case 6:
-			positionDemon.x = positionDemon.x - 1;
-			positionDemon.y = positionDemon.y - 1;
-			break;
-		case 7:
-			positionDemon.x = positionDemon.x + 1;
-			positionDemon.y = positionDemon.y - 1;
-			break;
-		case 8:
-			positionDemon.x = positionDemon.x - 1;
-			positionDemon.y = positionDemon.y + 1;
-			break;
-		default:
+		if(lastPos.x == positionDemon.x-direction.x && lastPos.y == positionDemon.y-direction.y) { // if moved
+			//
+		} else if(lastPos.x == positionDemon.x-direction.x) {
+			direction.y *= -1;
+		} else {
+			direction.x *= -1;
 		}
-		return positionDemon;
+		lastPos = new Point(positionDemon.x, positionDemon.y);
+		return new Point(positionDemon.x+direction.x, positionDemon.y+direction.y);
 	}
 
 }
