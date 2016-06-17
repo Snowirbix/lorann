@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -73,6 +74,7 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		MotionLessElement[][] map = this.getViewFrame().getModel().getMap();
 		ArrayList<IMobile> mobiles = this.getViewFrame().getModel().getMobiles();
+		
 		if(map != null) {
 			for(int y = 0; y < map[0].length; y++) {
 				for(int x = 0; x < map.length; x++) {
@@ -81,16 +83,15 @@ class ViewPanel extends JPanel implements Observer {
 			}
 			for(int i = mobiles.size()-1; i >= 0; i--) {
 				IMobile mobile = mobiles.get(i);
-				mobile.move();
+				Point postPosition = mobile.move();
 				if(map[mobile.getPosition().x][mobile.getPosition().y] instanceof ITouchable) {
 					((ITouchable) map[mobile.getPosition().x][mobile.getPosition().y]).onTouch(mobile);
 				}
-			}
-			for(int i = mobiles.size()-1; i >= 0; i--) {
-				IMobile mobile = mobiles.get(i);
 				for(int j = mobiles.size()-1; j >= 0; j--) {
 					IMobile mobile2 = mobiles.get(j);
-					if(mobile2 instanceof ITouchable && (mobile2.getPosition().x == mobile.getPosition().x && mobile2.getPosition().y == mobile.getPosition().y)) {
+					if(mobile2 instanceof ITouchable &&
+					(mobile2.getPosition().x == mobile.getPosition().x && mobile2.getPosition().y == mobile.getPosition().y)
+					|| (mobile2.getPosition().x == postPosition.x && mobile2.getPosition().y == postPosition.y)) {
 						if(((ITouchable) mobile2).onTouch(mobile)) {
 								mobiles.remove(mobile2);
 						}

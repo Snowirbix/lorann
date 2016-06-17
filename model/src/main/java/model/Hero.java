@@ -120,6 +120,8 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Demons) {
 			this.getModel().lose();
+		} else if(activator instanceof FireBall) {
+			this.disengage();
 		}
 		return false;
 	}
