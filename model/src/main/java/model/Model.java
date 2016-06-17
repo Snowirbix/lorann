@@ -6,6 +6,7 @@ import java.util.Observable;
 
 import contract.IMobile;
 import contract.IModel;
+import contract.ISave;
 import contract.MotionLessElement;
 
 /**
@@ -17,7 +18,7 @@ public class Model extends Observable implements IModel {
 
 	private MotionLessElement[][] map;
 	private ArrayList<IMobile> mobiles;
-	private Save save;
+	private ISave save;
 
 
 	/**
@@ -25,13 +26,13 @@ public class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		this.mobiles = new ArrayList<IMobile>();
-		this.save = new Save();
+		this.save = (ISave) new Save();
 	}
 
 	public void loadSave() {
 		try {
 			DAOSave daoSave = new DAOSave(DBConnection.getInstance().getConnection());
-			this.setSave(daoSave.find(0));
+			this.setSave((ISave) daoSave.find(0));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -65,11 +66,11 @@ public class Model extends Observable implements IModel {
 		this.mobiles = mobiles;
 	}
 
-	public Save getSave() {
+	public ISave getSave() {
 		return save;
 	}
 
-	public void setSave(Save save) {
+	public void setSave(ISave save) {
 		this.save = save;
 	}
 	
@@ -78,7 +79,7 @@ public class Model extends Observable implements IModel {
 		DAOSave daoSave;
 		try {
 			daoSave = new DAOSave(DBConnection.getInstance().getConnection());
-			daoSave.update(this.getSave());
+			daoSave.update((Save) this.getSave());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -89,7 +90,7 @@ public class Model extends Observable implements IModel {
 		DAOSave daoSave;
 		try {
 			daoSave = new DAOSave(DBConnection.getInstance().getConnection());
-			daoSave.update(this.getSave());
+			daoSave.update((Save) this.getSave());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

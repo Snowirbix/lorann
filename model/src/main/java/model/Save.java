@@ -1,6 +1,8 @@
 package model;
 
-public class Save extends Entity {
+import contract.ISave;
+
+public class Save extends Entity implements ISave {
 	private int life;
 	private int score;
 

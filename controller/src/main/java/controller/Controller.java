@@ -72,7 +72,7 @@ public class Controller implements IController {
 		while(true) {
 			this.getModel().setChange();
 			try {
-				Thread.sleep(150);
+				Thread.sleep(130);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

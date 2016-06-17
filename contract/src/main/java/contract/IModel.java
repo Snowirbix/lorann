@@ -30,5 +30,7 @@ public interface IModel {
 	void lose();
 
 	void setChange();
+
+	ISave getSave();
 	
 }
