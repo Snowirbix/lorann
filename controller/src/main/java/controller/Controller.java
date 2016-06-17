@@ -3,7 +3,6 @@ package controller;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IHero;
-import contract.IMobile;
 import contract.IModel;
 import contract.IView;
 
@@ -117,7 +116,7 @@ public class Controller implements IController {
 					}
 					break;
 				case _ATTACK:
-					hero.removeOrder(controllerOrder.ATTACK);
+					hero.removeOrder(ControllerOrder.ATTACK);
 					break;
 				default:
 					break;

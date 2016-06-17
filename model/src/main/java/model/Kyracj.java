@@ -1,10 +1,8 @@
 package model;
 
-import java.awt.Image;
 import java.awt.Point;
 
 import contract.IHero;
-import contract.IMobile;
 import contract.IStrategy;
 
 public class Kyracj implements IStrategy{

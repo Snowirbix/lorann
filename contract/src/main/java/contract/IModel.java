@@ -3,6 +3,8 @@ package contract;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.MotionLessElement;
+
 
 
 /**

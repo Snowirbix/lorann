@@ -41,6 +41,7 @@ public abstract class Main {
 				System.out.println("Error !");
 				System.out.println("Nombre incorrect : " + str);
 			}
+			sc.close();
 			
 		}while (menu == 0);
 			

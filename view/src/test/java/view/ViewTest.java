@@ -3,18 +3,10 @@
  */
 package view;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import contract.ControllerOrder;
-import contract.IMobile;
 
 /**
  * The Class ModelTest.
@@ -22,7 +14,6 @@ import contract.IMobile;
  * @author Jean-Aymeric Diet
  */
 public class ViewTest {
-	private View view;
 	
 	@Test
 	public void keyCodeToControllerOrder(){
