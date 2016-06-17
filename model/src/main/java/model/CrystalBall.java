@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import contract.IMobile;
 import contract.IModel;
 import contract.ITouchable;
-import contract.Mobile;
 import contract.Sprite;
 
 public class CrystalBall extends Mobile implements ITouchable {

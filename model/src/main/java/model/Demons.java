@@ -8,7 +8,6 @@ import contract.IMobile;
 import contract.IModel;
 import contract.IStrategy;
 import contract.ITouchable;
-import contract.Mobile;
 import contract.Permeability;
 import contract.Sprite;
 

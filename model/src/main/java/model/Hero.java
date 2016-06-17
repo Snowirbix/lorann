@@ -8,7 +8,6 @@ import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
 import contract.ITouchable;
-import contract.Mobile;
 import contract.Sprite;
 
 public class Hero extends Mobile implements ITouchable, IHero {

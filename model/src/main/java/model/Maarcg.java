@@ -6,7 +6,6 @@ import java.awt.Point;
 import contract.IHero;
 import contract.IMobile;
 import contract.IStrategy;
-import contract.Mobile;
 
 public class Maarcg implements IStrategy{
 	

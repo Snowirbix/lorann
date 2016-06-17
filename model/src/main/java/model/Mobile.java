@@ -1,6 +1,11 @@
-package contract;
+package model;
 
 import java.awt.Point;
+
+import contract.Element;
+import contract.IMobile;
+import contract.IModel;
+import contract.Permeability;
 
 public class Mobile extends Element implements IMobile {
 	protected Point position;
