@@ -84,7 +84,7 @@ public class ModelTest {
 	public void SetScore() {
 		int test = 0;
 		save.setScore(test);
-		//Assert.assertEquals(test, this.score);
+		Assert.assertEquals(test, this.score);
 				
 	}
 
