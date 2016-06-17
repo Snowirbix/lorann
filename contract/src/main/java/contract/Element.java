@@ -3,7 +3,7 @@ package contract;
 import java.awt.Image;
 import java.util.ArrayList;
 
-public class Element {
+public abstract class Element {
 	private ArrayList<Sprite> sprites;
 	private IModel model;
 	private int currentSprite;

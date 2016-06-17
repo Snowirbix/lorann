@@ -1,7 +1,7 @@
 package contract;
 
 
-public class MotionLessElement extends Element {
+public abstract class MotionLessElement extends Element {
 	private char fileSymbol;
 	
 	public MotionLessElement(IModel model, char fileSymbol) {
