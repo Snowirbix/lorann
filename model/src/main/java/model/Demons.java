@@ -47,8 +47,12 @@ public class Demons extends Mobile implements ITouchable {
 		Point newPosition = this.movementStrat.move(new Point(position.x, position.y), ((IHero) this.getModel().getMobiles().get(0)));
 		if(this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING){
 			this.setPosition(newPosition);
+		} else if(this.getModel().getMap()[newPosition.x][position.y].getPermeability() != Permeability.BLOCKING) {
+			this.position.x = newPosition.x;
+		} else if(this.getModel().getMap()[position.x][newPosition.y].getPermeability() != Permeability.BLOCKING) {
+			this.position.y = newPosition.y;
 		}
-	return this.getPosition();
+		return this.getPosition();
 	}
 	
 }

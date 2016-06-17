@@ -23,11 +23,21 @@ public class Arrbarr implements IStrategy {
 				} else {
 					positionDemon.x--;
 				}
+				if(diff.y > 0) {
+					positionDemon.y++;
+				} else if(diff.y < 0) {
+					positionDemon.y--;
+				}
 			} else {
 				if(diff.y > 0) {
 					positionDemon.y++;
 				} else {
 					positionDemon.y--;
+				}
+				if(diff.x > 0) {
+					positionDemon.x++;
+				} else if(diff.x < 0) {
+					positionDemon.x--;
 				}
 			}
 		} else {
