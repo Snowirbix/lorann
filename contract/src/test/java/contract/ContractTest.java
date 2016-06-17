@@ -21,12 +21,7 @@ import contract.IMobile;
  * @author Jean-Aymeric Diet
  */
 public class ContractTest {
-	
-//	private Gate gate;
-//	private Bone bone;
-//	private Hero hero;
-	private ArrayList<ControllerOrder> orders;
-	
+		
 //	@Test
 //	public void testGetMessageString() {
 //		

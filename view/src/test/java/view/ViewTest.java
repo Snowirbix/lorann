@@ -22,6 +22,7 @@ import contract.IMobile;
  * @author Jean-Aymeric Diet
  */
 public class ViewTest {
+	private View view;
 	
 	@Test
 	public void keyCodeToControllerOrder(){
