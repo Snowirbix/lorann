@@ -12,7 +12,7 @@ public class Cargyv implements IStrategy{
 		
 	}
 
-	public Point move(Point positionDemon) {
+	public Point move(Point positionDemon, IHero hero) {
 		int randomNumber = 1 + (int)((Math.random()) * (9 - 1));
 		switch(randomNumber){
 		case 1:
@@ -46,11 +46,6 @@ public class Cargyv implements IStrategy{
 		default:
 			return positionDemon;
 		}
-	}
-
-	public Point move(Point positionDemon, IHero hero) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

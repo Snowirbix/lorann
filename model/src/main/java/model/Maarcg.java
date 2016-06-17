@@ -21,13 +21,8 @@ public class Maarcg implements IStrategy{
 		return positionDemon;
 	}
 
-	public Point move(Point positionDemon) {
-		return positionDemon;
-	}
-
 	public Point move(Point positionDemon, IHero hero) {
-		// TODO Auto-generated method stub
-		return null;
+		return positionDemon;
 	}
 
 

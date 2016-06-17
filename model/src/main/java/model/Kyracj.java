@@ -13,7 +13,7 @@ public class Kyracj implements IStrategy{
 		
 	}
 
-	public Point move(Point positionDemon) {
+	public Point move(Point positionDemon, IHero hero) {
 		int randomNumber = 1 + (int)(Math.random() * (5 - 1));
 		switch(randomNumber){
 		case 1:
@@ -36,12 +36,6 @@ public class Kyracj implements IStrategy{
 			return positionDemon;
 		}
 	}
-
-	public Point move(Point positionDemon, IHero hero) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	
 
 }

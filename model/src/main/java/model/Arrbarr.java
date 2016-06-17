@@ -17,7 +17,6 @@ public class Arrbarr implements IStrategy {
 		
 		if(random > 1/dist) {
 			Point diff = new Point(hero.getPosition().x-positionDemon.x, hero.getPosition().y-positionDemon.y);
-			System.out.println(diff);
 			if(Math.abs(diff.x) > Math.abs(diff.y)) {
 				if(diff.x > 0) {
 					positionDemon.x++;
