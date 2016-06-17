@@ -34,6 +34,11 @@ public class Mobile extends Element implements IMobile {
 	
 	public boolean isMovePossible() {
 		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y+this.getDirection().y);
+		for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
+			if(this.getModel().getMobiles().get(i).getPosition().distance(newPosition) == 0.0) {
+				//
+			}
+		}
 		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
 	}
 
