@@ -10,6 +10,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.IMobile;
+import contract.IModel;
+
 /**
  * The Class ModelTest.
  *
@@ -17,6 +20,11 @@ import org.junit.Test;
  */
 public class ModelTest {
 	private Gate gate;
+	private int score;
+	private Save save;
+	private IModel imodel;
+	private IMobile activator;
+	private Purse purse;
 
 	/**
 	 * Sets the up before class.
@@ -46,6 +54,8 @@ public class ModelTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		this.save = new Save();
+		this.purse = new Purse(imodel, 0, 0);
 	}
 
 	/**
@@ -63,6 +73,19 @@ public class ModelTest {
 		this.gate = new Gate(null);
 		this.gate.open();
 		Assert.assertEquals(true, this.gate.getState());
+	}
+	
+	@Test
+	public void onTouch() {
+		Assert.assertEquals(false, purse.onTouch(activator));
+	}
+	
+	@Test
+	public void SetScore() {
+		int test = 0;
+		save.setScore(test);
+		//Assert.assertEquals(test, this.score);
+				
 	}
 
 
