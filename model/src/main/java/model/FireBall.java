@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import contract.IMobile;
 import contract.IModel;
 import contract.ITouchable;
+import contract.Permeability;
 import contract.Sprite;
 
 public class FireBall extends Mobile implements ITouchable {
@@ -19,6 +20,7 @@ public class FireBall extends Mobile implements ITouchable {
 		sprites.add(new Sprite("fireball_5.png"));
 		this.setSprites(sprites);
 		this.setDirection(_x - x, _y - y);
+		this.setPermeability(Permeability.PENETRABLE);
 	}
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Hero) {
@@ -29,17 +31,11 @@ public class FireBall extends Mobile implements ITouchable {
 	}
 	public Point move() {
 		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
-			if(this.isMovePossible()) {
-				this.position.x += this.direction.x;
-				this.position.y += this.direction.y;
-			}/* else if(this.isMovePossibleX() && this.getDirection().x != 0) {
-				this.position.x += this.direction.x;
-			} else if(this.isMovePossibleY() && this.getDirection().y != 0) {
-				this.position.y += this.direction.y;
-			}*/
-		}
-		if(!this.isMovePossible()) {
-			this.direction = new Point(this.getDirection().x*-1, this.getDirection().y*-1); // bounce on walls
+			if(!this.isMovePossible(getPosition().x+getDirection().x, getPosition().y+getDirection().y)) {
+				this.direction = new Point(this.getDirection().x*-1, this.getDirection().y*-1); // bounce on walls
+			}
+			this.position.x += this.direction.x;
+			this.position.y += this.direction.y;
 		}
 		this.setCurrentSprite((this.getCurrentSprite()+1)%5); // change the sprite
 		return this.getPosition();

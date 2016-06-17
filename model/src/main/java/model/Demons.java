@@ -24,6 +24,7 @@ public class Demons extends Mobile implements ITouchable {
 		sprites.add(new Sprite("monster_3.png"));
 		sprites.add(new Sprite("monster_4.png"));
 		this.setSprites(sprites);
+		this.setPermeability(Permeability.BLOCKING);
 		
 		if(strat instanceof Kyracj) {
 			this.setCurrentSprite(0);	
@@ -44,14 +45,13 @@ public class Demons extends Mobile implements ITouchable {
 	}
 	public Point move(){
 		Point newPosition = this.movementStrat.move(new Point(position.x, position.y), ((IHero) this.getModel().getMobiles().get(0)));
-		if(this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING){
+		if(this.isMovePossible(newPosition.x, newPosition.y)){
 			this.setPosition(newPosition);
-		} else if(this.getModel().getMap()[newPosition.x][position.y].getPermeability() != Permeability.BLOCKING) {
+		} else if(this.isMovePossible(newPosition.x, getPosition().y)) {
 			this.position.x = newPosition.x;
-		} else if(this.getModel().getMap()[position.x][newPosition.y].getPermeability() != Permeability.BLOCKING) {
+		} else if(this.isMovePossible(getPosition().x, newPosition.y)) {
 			this.position.y = newPosition.y;
 		}
 		return this.getPosition();
 	}
-	
 }

@@ -32,26 +32,17 @@ public abstract class Mobile extends Element implements IMobile {
 		this.direction.y += y;
 	}
 	
-	public boolean isMovePossible() {
-		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y+this.getDirection().y);
-		for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
-			IMobile mobile = this.getModel().getMobiles().get(i);
-			if(mobile.getPosition().distance(newPosition) == 0.0 && mobile.getPermeability() == Permeability.BLOCKING) {
-				return false;
+	public boolean isMovePossible(int pos_x, int pos_y) {
+		if(this.getPermeability() == Permeability.BLOCKING) {
+			for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
+				IMobile mobile = this.getModel().getMobiles().get(i);
+				if(mobile.getPosition().x == pos_x && mobile.getPosition().y == pos_y && mobile.getPermeability() == Permeability.BLOCKING && mobile != this) {
+					return false;
+				}
 			}
 		}
-		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
+		return (this.getModel().getMap()[pos_x][pos_y].getPermeability() != Permeability.BLOCKING);
 	}
-
-	/*public boolean isMovePossibleX() {
-		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y);
-		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
-	}
-	
-	public boolean isMovePossibleY() {
-		Point newPosition = new Point(this.getPosition().x, this.getPosition().y+this.getDirection().y);
-		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
-	}*/
 	
 	public abstract Point move();
 
