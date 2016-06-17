@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 import contract.IMobile;
@@ -22,5 +23,9 @@ public class Purse extends Mobile implements ITouchable {
 			return true;
 		}
 		return false;
+	}
+
+	public Point move() {
+		return getPosition();
 	}
 }

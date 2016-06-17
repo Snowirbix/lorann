@@ -7,7 +7,7 @@ import contract.IMobile;
 import contract.IModel;
 import contract.Permeability;
 
-public class Mobile extends Element implements IMobile {
+public abstract class Mobile extends Element implements IMobile {
 	protected Point position;
 	protected Point direction;
 	
@@ -35,14 +35,15 @@ public class Mobile extends Element implements IMobile {
 	public boolean isMovePossible() {
 		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y+this.getDirection().y);
 		for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
-			if(this.getModel().getMobiles().get(i).getPosition().distance(newPosition) == 0.0) {
-				//
+			IMobile mobile = this.getModel().getMobiles().get(i);
+			if(mobile.getPosition().distance(newPosition) == 0.0 && mobile.getPermeability() == Permeability.BLOCKING) {
+				return false;
 			}
 		}
 		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
 	}
 
-	public boolean isMovePossibleX() {
+	/*public boolean isMovePossibleX() {
 		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y);
 		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
 	}
@@ -50,21 +51,9 @@ public class Mobile extends Element implements IMobile {
 	public boolean isMovePossibleY() {
 		Point newPosition = new Point(this.getPosition().x, this.getPosition().y+this.getDirection().y);
 		return (this.getModel().getMap()[newPosition.x][newPosition.y].getPermeability() != Permeability.BLOCKING);
-	}
+	}*/
 	
-	public Point move() {
-		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
-			if(this.isMovePossible()) {
-				this.position.x += this.direction.x;
-				this.position.y += this.direction.y;
-			} else if(this.isMovePossibleX() && this.getDirection().x != 0) {
-				this.position.x += this.direction.x;
-			} else if(this.isMovePossibleY() && this.getDirection().y != 0) {
-				this.position.y += this.direction.y;
-			}
-		}
-		return this.position;
-	}
+	public abstract Point move();
 
 	public void setPosition(int x, int y) {
 		this.position = new Point(x, y);

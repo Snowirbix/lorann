@@ -7,6 +7,7 @@ public class Element {
 	private ArrayList<Sprite> sprites;
 	private IModel model;
 	private int currentSprite;
+	private Permeability permeability;
 	
 	public Element(IModel model) {
 		this.sprites = new ArrayList<Sprite>();
@@ -37,5 +38,13 @@ public class Element {
 	}
 	public void setCurrentSprite(int currentSprite) {
 		this.currentSprite = currentSprite;
+	}
+
+	public Permeability getPermeability() {
+		return permeability;
+	}
+
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
 	}
 }

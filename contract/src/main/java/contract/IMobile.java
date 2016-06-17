@@ -15,4 +15,6 @@ public interface IMobile {
 	public void setDirection(int x, int y);
 
 	public void setPosition(int x, int y);
+
+	public Permeability getPermeability();
 }

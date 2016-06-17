@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 import contract.IMobile;
@@ -24,5 +25,10 @@ public class CrystalBall extends Mobile implements ITouchable {
 			return true; // remove the ball
 		}
 		return false;
+	}
+
+	@Override
+	public Point move() {
+		return getPosition();
 	}
 }

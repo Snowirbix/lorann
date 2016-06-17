@@ -48,13 +48,13 @@ public class Hero extends Mobile implements ITouchable, IHero {
 				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
 				this.position.x += this.direction.x;
 				this.position.y += this.direction.y;
-			} else if(this.isMovePossibleX() && this.getDirection().x != 0) {
+			}/* else if(this.isMovePossibleX() && this.getDirection().x != 0) {
 				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
 				this.position.x += this.direction.x;
 			} else if(this.isMovePossibleY() && this.getDirection().y != 0) {
 				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
 				this.position.y += this.direction.y;
-			}
+			}*/
 			switch(this.getDirection().x) {
 				case -1:
 					switch(this.getDirection().y) {
