@@ -32,8 +32,8 @@ public abstract class Mobile extends Element implements IMobile {
 		this.direction.y += y;
 	}
 	
-	public boolean isMovePossible() {
-		Point newPosition = new Point(this.getPosition().x+this.getDirection().x, this.getPosition().y+this.getDirection().y);
+	public boolean isMovePossible(int dir_x, int dir_y) {
+		Point newPosition = new Point(this.getPosition().x+dir_x, this.getPosition().y+dir_y);
 		for(int i = this.getModel().getMobiles().size()-1; i >= 0; i--) {
 			IMobile mobile = this.getModel().getMobiles().get(i);
 			if(mobile.getPosition().distance(newPosition) == 0.0 && mobile.getPermeability() == Permeability.BLOCKING) {

@@ -45,18 +45,23 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	}
 	
 	public Point move() {
+		
 		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
-			if(this.isMovePossible()) {
-				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
+			
+			Point previousPosition = new Point(this.previousPosition.x, this.previousPosition.y); // clone
+			this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
+			
+			if(this.isMovePossible(this.getDirection().x, this.getDirection().y)) {
 				this.position.x += this.direction.x;
 				this.position.y += this.direction.y;
-			}/* else if(this.isMovePossibleX() && this.getDirection().x != 0) {
-				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
+			} else if(this.isMovePossible(this.getDirection().x, 0) && this.getDirection().x != 0) {
 				this.position.x += this.direction.x;
-			} else if(this.isMovePossibleY() && this.getDirection().y != 0) {
-				this.previousPosition = new Point(this.getPosition().x, this.getPosition().y); // clone
+			} else if(this.isMovePossible(0, this.getDirection().y) && this.getDirection().y != 0) {
 				this.position.y += this.direction.y;
-			}*/
+			} else {
+				this.previousPosition = previousPosition;
+			}
+			
 			switch(this.getDirection().x) {
 				case -1:
 					switch(this.getDirection().y) {
@@ -97,6 +102,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		} else {
 			this.setCurrentSprite((this.getCurrentSprite()+1)%8);
 		}
+		
 		return this.getPosition();
 	}
 	public void attack() {

@@ -29,17 +29,11 @@ public class FireBall extends Mobile implements ITouchable {
 	}
 	public Point move() {
 		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
-			if(this.isMovePossible()) {
-				this.position.x += this.direction.x;
-				this.position.y += this.direction.y;
-			}/* else if(this.isMovePossibleX() && this.getDirection().x != 0) {
-				this.position.x += this.direction.x;
-			} else if(this.isMovePossibleY() && this.getDirection().y != 0) {
-				this.position.y += this.direction.y;
-			}*/
-		}
-		if(!this.isMovePossible()) {
-			this.direction = new Point(this.getDirection().x*-1, this.getDirection().y*-1); // bounce on walls
+			if(!this.isMovePossible(this.getDirection().x, this.getDirection().y)) {
+				this.direction = new Point(this.getDirection().x*-1, this.getDirection().y*-1); // bounce on walls
+			}
+			this.position.x += this.direction.x;
+			this.position.y += this.direction.y;
 		}
 		this.setCurrentSprite((this.getCurrentSprite()+1)%5); // change the sprite
 		return this.getPosition();
