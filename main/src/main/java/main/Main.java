@@ -5,8 +5,6 @@ import model.Model;
 import view.View;
 //Ceci importe la classe Scanner du package java.util
 import java.util.Scanner; 
-//Ceci importe toutes les classes du package java.util
-import java.util.*;
 
 /**
  * The Class Main.
@@ -28,10 +26,22 @@ public abstract class Main {
 		view.setController(controller);
 		//controller.control();
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Choose your level (1-5) :");
-		int str = sc.nextInt();
-		System.out.println("Loading level " + str);
-		model.loadMap(str);
+		int test  = 0;
+		do
+		{
+			System.out.println("Choose your level (1-6) :");
+			Scanner sc = new Scanner(System.in);
+			int str = sc.nextInt();
+			
+			if(str >= 0 && str <= 6) {
+				model.loadMap(str);
+				test = 1;
+			}
+			else{
+				System.out.println("Error !");
+			}
+			
+		}while (test == 0);
+			
 	}
 }
