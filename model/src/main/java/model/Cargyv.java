@@ -17,35 +17,38 @@ public class Cargyv implements IStrategy{
 		switch(randomNumber){
 		case 1:
 			positionDemon.x = positionDemon.x + 1;
-			return positionDemon;
+			break;
 		
 		case 2:
 			positionDemon.x = positionDemon.x - 1;
-			return positionDemon;
+			break;
 		
 		case 3:
 			positionDemon.y = positionDemon.y + 1;
-			return positionDemon;
+			break;
 		
 		case 4:
 			positionDemon.y = positionDemon.y - 1;
-			return positionDemon;
+			break;
 		case 5:
 			positionDemon.x = positionDemon.x + 1;
 			positionDemon.y = positionDemon.y + 1;
-			return positionDemon;
+			break;
 		case 6:
 			positionDemon.x = positionDemon.x - 1;
 			positionDemon.y = positionDemon.y - 1;
+			break;
 		case 7:
 			positionDemon.x = positionDemon.x + 1;
 			positionDemon.y = positionDemon.y - 1;
+			break;
 		case 8:
 			positionDemon.x = positionDemon.x - 1;
 			positionDemon.y = positionDemon.y + 1;
+			break;
 		default:
-			return positionDemon;
 		}
+		return positionDemon;
 	}
 
 }
