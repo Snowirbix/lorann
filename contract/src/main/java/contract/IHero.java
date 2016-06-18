@@ -15,4 +15,5 @@ public interface IHero {
 	public Point getPreviousPosition();
 	public void disengage();
 	public void setScore(int i);
+	public IMobile getFireBall();
 }
