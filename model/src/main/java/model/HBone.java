@@ -9,6 +9,15 @@ import contract.Sprite;
 
 public class HBone extends MotionLessElement {
 
+	
+	/**
+	 * Instantiates a new bone horizontal.
+	 * Element Blocking.
+	 * 
+	 * @param model
+	 * 
+	 * @author Clément
+	 */
 	public HBone(IModel model) {
 		super(model);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();

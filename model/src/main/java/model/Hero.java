@@ -25,6 +25,15 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		this.orders = orders;
 	}
 
+	
+	/**
+	 * Instantiates a new Hero.
+	 * It contains 8 sprites storage in a ArrayList.
+	 * 
+	 * @param model
+	 * 
+	 * @author Clément
+	 */
 	public Hero(IModel model) {
 		super(model, 0, 0);
 		this.previousPosition = new Point(0, 0);
@@ -44,6 +53,14 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		this.setPermeability(Permeability.PENETRABLE);
 	}
 	
+	
+	/**
+	 * To move the Hero
+	 * 
+	 * @return the new position of the hero.
+	 * 
+	 * @author Clément
+	 */
 	public Point move() {
 		
 		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
@@ -105,16 +122,34 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		
 		return this.getPosition();
 	}
+	
+	/**
+	 * To throw (cast) a fireball
+	 * 
+	 * @author Clément
+	 */
 	public void attack() {
 		if(this.fireBall == null) {
 			this.fireBall = new FireBall(this.getModel(), this.getPosition().x, this.getPosition().y, this.getPreviousPosition().x, this.getPreviousPosition().y);
 			this.getModel().getMobiles().add(this.fireBall);
 		}
 	}
+	
+	/**
+	 * To recover the fireball
+	 * 
+	 * @author Clément
+	 */
 	public void disengage() {
 		this.getModel().getMobiles().remove(this.fireBall);
 		this.fireBall = null;
 	}
+	
+	/**
+	 * To recover the 
+	 * 
+	 * @author Clément
+	 */
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Demons) {
 			this.getModel().lose();
