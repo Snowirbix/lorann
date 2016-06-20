@@ -9,6 +9,11 @@ import javax.imageio.ImageIO;
 public class Sprite implements ISprite {
 	private Image image;
 	
+	/**
+	 * Instantiates a new Sprite.
+	 * 
+	 * @param path
+	 */
 	public Sprite(String path) {
 		try {
 			this.image = ImageIO.read(new File("../sprite/" + path));
@@ -21,6 +26,11 @@ public class Sprite implements ISprite {
 			}
 		}
 	}
+	
+	/**
+	 * To get Image of the sprite.
+	 * @return Image of the sprite
+	 */
 	public Image getImage() {
 		return this.image;
 	}
