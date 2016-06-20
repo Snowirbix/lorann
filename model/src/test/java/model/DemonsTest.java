@@ -38,12 +38,12 @@ public class DemonsTest {
 	public void onTouchTest() {
 		IMobile fireBall = (IMobile) new FireBall(model, 0, 0, 1, 0);
 		assertTrue(demons.onTouch(fireBall));
-		assertFalse(demons.onTouch((IMobile) this));
+		assertFalse(demons.onTouch((IMobile) demons));
 	}
 
 	@Test
 	public void moveTest() {
-		//
+		assertNotNull(demons.move());
 	}
 
 }
