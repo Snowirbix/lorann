@@ -1,10 +1,12 @@
 package model;
 
+import contract.IModel;
 import contract.ISave;
 
 public class Save extends Entity implements ISave {
 	private int life;
 	private int score;
+	private IModel model;
 
 	public Save(int life, int score) {
 		this.life = life;
@@ -22,6 +24,14 @@ public class Save extends Entity implements ISave {
 
 	public void setLife(int life) {
 		this.life += life;
+	}
+
+	public IModel getModel() {
+		return model;
+	}
+
+	public void setModel(IModel model) {
+		this.model = model;
 	}
 
 	public int getScore() {

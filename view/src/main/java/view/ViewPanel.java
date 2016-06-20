@@ -108,6 +108,9 @@ class ViewPanel extends JPanel implements Observer {
 			graphics.setFont(new Font("Calibri", Font.PLAIN, 30));
 			graphics.drawString("Score : " + ((IHero) mobiles.get(0)).getScore(), map.length*32-180, map[0].length*32+30);
 			graphics.drawString("Life : " + this.getViewFrame().getModel().getSave().getLife(), map.length*32-30, map[0].length*32+30);
+		} else {
+			graphics.setFont(new Font("Calibri", Font.PLAIN, 30));
+			graphics.drawString("Best score : " + this.getViewFrame().getModel().getHighScore().getScore(), 800, 450); 
 		}
 	}
 }

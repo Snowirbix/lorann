@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.IHighScore;
 import contract.IMobile;
 import contract.IModel;
 import contract.ISave;
@@ -19,6 +20,7 @@ public class Model extends Observable implements IModel {
 	private MotionLessElement[][] map;
 	private ArrayList<IMobile> mobiles;
 	private ISave save;
+	private IHighScore highScore;
 
 
 	/**
@@ -27,12 +29,22 @@ public class Model extends Observable implements IModel {
 	public Model() {
 		this.mobiles = new ArrayList<IMobile>();
 		this.save = (ISave) new Save();
+		this.highScore = (IHighScore) new HighScore();
+		this.loadHighScore();
 	}
 
 	public void loadSave() {
 		try {
 			DAOSave daoSave = new DAOSave(DBConnection.getInstance().getConnection());
 			this.setSave((ISave) daoSave.find(0));
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void loadHighScore() {
+		try {
+			DAOHighScore daoHighScore = new DAOHighScore(DBConnection.getInstance().getConnection());
+			this.setHighScore((IHighScore) daoHighScore.find(0));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -72,8 +84,17 @@ public class Model extends Observable implements IModel {
 
 	public void setSave(ISave save) {
 		this.save = save;
+		save.setModel(this);
 	}
-	
+
+	public IHighScore getHighScore() {
+		return highScore;
+	}
+
+	public void setHighScore(IHighScore highScore) {
+		this.highScore = highScore;
+	}
+
 	public void win() {
 		this.getSave().setScore(((Hero) this.getMobiles().get(0)).getScore());
 		DAOSave daoSave;
@@ -87,6 +108,17 @@ public class Model extends Observable implements IModel {
 	}
 	public void lose() {
 		this.getSave().setLife(-1);
+		if(this.getSave().getLife() <= 0) {
+			DAOHighScore daoHighScore;
+			try {
+				daoHighScore = new DAOHighScore(DBConnection.getInstance().getConnection());
+				daoHighScore.update(this.getSave().getScore());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			this.setSave(new Save(10, 0)); // reset
+		}
+		
 		DAOSave daoSave;
 		try {
 			daoSave = new DAOSave(DBConnection.getInstance().getConnection());

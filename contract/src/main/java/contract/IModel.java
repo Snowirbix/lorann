@@ -32,5 +32,7 @@ public interface IModel {
 	void setChange();
 
 	ISave getSave();
+
+	IHighScore getHighScore();
 	
 }

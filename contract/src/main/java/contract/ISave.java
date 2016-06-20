@@ -8,4 +8,8 @@ public interface ISave {
 
 	int getLife();
 
+	void setModel(IModel model);
+
+	int getScore();
+
 }
