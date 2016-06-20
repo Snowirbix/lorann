@@ -17,6 +17,7 @@ public class Gate extends MotionLessElement implements ITouchable {
 	 * Instantiates a new Gate.
 	 * 
 	 * @param model
+	 * @see IModel
 	 * 
 	 * @author Clément
 	 */

@@ -3,15 +3,33 @@ package model;
 import java.awt.Point;
 
 import contract.IHero;
+import contract.IModel;
 import contract.IStrategy;
 
 public class Maarcg implements IStrategy{
-	
+	/**
+	 * Instantiates a new Maarcg (Demons).
+	 * 
+	 * @author Clément
+	 */
 	public Maarcg(){
 		
 		
 	}
 
+	/**
+	 * To move the Demons (Kyracj)
+	 * 
+	 * @param positionDemon
+	 * The position of the demons
+	 * 
+	 * @param hero 
+	 * @see IHero
+	 * 
+	 * @return the new position of the Demon.
+	 * 
+	 * @author Clément
+	 */
 	public Point move(Point positionDemon, IHero hero) {
 		
 		double random = Math.random();

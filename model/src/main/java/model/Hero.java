@@ -12,15 +12,33 @@ import contract.Permeability;
 import contract.Sprite;
 
 public class Hero extends Mobile implements ITouchable, IHero {
+	/**
+	 * @see FireBall
+	 */
 	private FireBall fireBall;
+	/**
+	 * @see ArrayList<ControllerOrder>
+	 */
 	private ArrayList<ControllerOrder> orders;
 	private int score;
+	/**
+	 * @see Point
+	 */
 	protected Point previousPosition;
 
+	/**
+	 * 
+	 * @return ArrayList of orders
+	 */
 	public ArrayList<ControllerOrder> getOrders() {
 		return orders;
 	}
 
+	/**
+	 * 
+	 * @param orders
+	 * Order to set.
+	 */
 	public void setOrders(ArrayList<ControllerOrder> orders) {
 		this.orders = orders;
 	}
