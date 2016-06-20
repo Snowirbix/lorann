@@ -7,6 +7,14 @@ import java.sql.SQLException;
 
 public class DAOHighScore extends DAOEntity<HighScore> {
 
+	/**
+	 * Instantiates a new DAOHighScore.
+	 * 
+	 * @param connection
+	 * Connection to the BDD
+	 * @see Connection
+	 * @throws SQLException
+	 */
 	public DAOHighScore(Connection connection) throws SQLException {
 		super(connection);
 		// TODO Auto-generated constructor stub
@@ -30,6 +38,11 @@ public class DAOHighScore extends DAOEntity<HighScore> {
 		return false;
 	}
 
+	/**
+	 * @param id
+	 * @return the best score record on the BDD
+	 * 
+	 */
 	@Override
 	public HighScore find(int id) {
 		HighScore highScore = new HighScore();
@@ -49,6 +62,12 @@ public class DAOHighScore extends DAOEntity<HighScore> {
 		return null;
 	}
 
+	/**
+	 * Add a score on the BDD
+	 * @param life
+	 * @return true if the procedure work
+	 * else return false
+	 */
 	public boolean update(int life) {
 		try {
 			final String sql = "{call addHighScore(?)}";

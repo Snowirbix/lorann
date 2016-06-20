@@ -7,6 +7,11 @@ import java.sql.SQLException;
 
 public class DAOMap extends DAOEntity<Map> {
 
+	/**
+	 * Instantiates a new DAOMap.
+	 * @param connection
+	 * @throws SQLException
+	 */
 	public DAOMap(Connection connection) throws SQLException {
 		super(connection);
 	}
@@ -29,6 +34,12 @@ public class DAOMap extends DAOEntity<Map> {
 		return false;
 	}
 
+	/**
+	 * TO get the map from the Database
+	 * @param id
+	 * the number of the map do you want (ID on the Database)
+	 * 
+	 */
 	@Override
 	public Map find(int id) {
 		Map map = new Map();
