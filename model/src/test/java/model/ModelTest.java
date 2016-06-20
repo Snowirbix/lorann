@@ -10,11 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import contract.Element;
-import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
-import contract.IStrategy;
 
 /**
  * The Class ModelTest.
@@ -28,7 +25,6 @@ public class ModelTest {
 	private IModel imodel;
 	private IMobile activator;
 	private Purse purse;
-	private Demons demons;
 	private HighScore highScore;
 	private Map map;
 
@@ -113,14 +109,6 @@ public class ModelTest {
 		save.setScore(test);
 		Assert.assertEquals(test, this.score);
 	}
-	
-//	@Test
-//	public void OnTouch() {
-//		IStrategy strat = new Maarcg();
-//		this.demons = new Demons(imodel , 1 , 1, strat);
-//		this.activator = new FireBall(imodel, score, score, score, score);
-//		Assert.assertEquals(true,demons.onTouch(activator));
-//	}
 	
 	@Test
 	public void setLife() {

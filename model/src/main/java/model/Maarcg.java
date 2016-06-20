@@ -3,7 +3,6 @@ package model;
 import java.awt.Point;
 
 import contract.IHero;
-import contract.IModel;
 import contract.IStrategy;
 
 public class Maarcg implements IStrategy{
