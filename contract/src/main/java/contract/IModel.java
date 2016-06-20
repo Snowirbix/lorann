@@ -34,5 +34,7 @@ public interface IModel {
 	ISave getSave();
 
 	IHighScore getHighScore();
+
+	void loadMap(int i);
 	
 }
