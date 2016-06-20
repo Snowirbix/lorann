@@ -3,7 +3,7 @@ package model;
 /**
  * The Class Entity.
  *
- * @author Jean-Aymeric Diet
+ * @author Alban, Alexandre, Clement
  */
 abstract class Entity {
 

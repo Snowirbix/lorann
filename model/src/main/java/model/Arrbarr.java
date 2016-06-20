@@ -11,6 +11,11 @@ public class Arrbarr implements IStrategy {
 		
 	}
 
+	/**
+	 * this method check if the hero is moving, and move the demon Arrbarr in consequence.
+	 * 
+	 * @return the new position of the Demon
+	 */
 	public Point move(Point positionDemon, IHero hero) {
 		
 		Point heroIsMoving = new Point(hero.getDirection().x, hero.getDirection().y);

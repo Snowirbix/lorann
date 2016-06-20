@@ -13,8 +13,19 @@ import contract.Sprite;
 
 public class Demons extends Mobile implements ITouchable {
 	
+	/**
+	 * this attribute is used for call the different method move for demons
+	 * @see IStrategy
+	 */
 	private IStrategy movementStrat;
 	
+	/**
+	 * This constructor create the different sprites of different demons
+	 * @param model
+	 * @param x
+	 * @param y
+	 * @param strat
+	 */
 	public Demons(IModel model, int x, int y,IStrategy strat) {
 		super(model, x, y);
 		this.movementStrat = strat;
@@ -36,6 +47,12 @@ public class Demons extends Mobile implements ITouchable {
 			this.setCurrentSprite(3);				
 		}
 	}
+	
+	/**
+	 * method use when a demon is touch (or not) by a Fireball
+	 *@param activator
+	 *@return false if a demon is alive, true if he die 
+	 */
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof FireBall) {
 			((IHero) this.getModel().getMobiles().get(0)).setScore(20);
@@ -44,6 +61,11 @@ public class Demons extends Mobile implements ITouchable {
 		}
 		return false;
 	}
+	
+	/**
+	 * this method call the method move of different demons with some parameters 
+	 * @return the current position of a demon
+	 */
 	public Point move(){
 		Point newPosition = this.movementStrat.move(new Point(position.x, position.y), ((IHero) this.getModel().getMobiles().get(0)));
 		if(this.isMovePossible(newPosition.x, newPosition.y)){
