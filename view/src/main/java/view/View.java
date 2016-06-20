@@ -35,6 +35,11 @@ public class View implements IView, Runnable {
 	 *
 	 * @param keyCode
 	 *          the key code
+	 *          
+	 * @param tap
+	 *			Is true is the key is push
+	 *			Is true is the key is not push
+	 *          
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, boolean tap) {

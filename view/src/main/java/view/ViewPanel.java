@@ -64,10 +64,11 @@ class ViewPanel extends JPanel implements Observer {
 		this.repaint();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Diplay the map from the recovery of the database
 	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 * 
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
