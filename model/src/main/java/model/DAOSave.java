@@ -6,7 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DAOSave extends DAOEntity<Save> {
-
+	/**
+	 * this constructor make a connection
+	 * @param connection
+	 * @throws SQLException
+	 */
 	public DAOSave(Connection connection) throws SQLException {
 		super(connection);
 	}
@@ -24,6 +28,11 @@ public class DAOSave extends DAOEntity<Save> {
 	}
 
 	@Override
+	/**
+	 * this method is used to update the save
+	 * @param entity
+	 * @return True if the save works False if nothing to update
+	 */
 	public boolean update(Save entity) {
 		try {
 			final String sql = "{call setSave(?, ?)}";
@@ -39,6 +48,11 @@ public class DAOSave extends DAOEntity<Save> {
 	}
 
 	@Override
+	/**
+	 * this method find the save (call the procedure getSave in the database)
+	 * @param id
+	 * @return save if the save exist, null if save doesn't exist
+	 */
 	public Save find(int id) {
 		Save save = new Save();
 
