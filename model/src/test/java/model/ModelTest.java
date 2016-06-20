@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.Element;
 import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
@@ -80,6 +81,8 @@ public class ModelTest {
 		Assert.assertEquals(0, this.map.getHeight());
 		Assert.assertEquals("", this.map.getMap());
 		
+		this.activator = new FireBall(imodel, score, score, score, score);
+		
 	}
 
 	/**
@@ -111,21 +114,13 @@ public class ModelTest {
 		Assert.assertEquals(test, this.score);
 	}
 	
-	@Test
-	public void Demons() {
-		IStrategy strat = new Kyracj();
-		this.demons = new Demons(imodel , 1 , 1, strat);
-		//System.out.println(contract.Element.setCurrentSprite(0));
-		//Assert.assertEquals(setCurrentSprite(0), false)
-	}
-	
-	@Test
-	public void testOnTouch() {
-		IStrategy strat = null;
-		this.demons = new Demons(imodel , 1 , 1, strat);
-		this.activator = new FireBall(imodel, score, score, score, score);
-		//Assert.assertEquals(false,demons.onTouch(activator));
-	}
+//	@Test
+//	public void OnTouch() {
+//		IStrategy strat = new Maarcg();
+//		this.demons = new Demons(imodel , 1 , 1, strat);
+//		this.activator = new FireBall(imodel, score, score, score, score);
+//		Assert.assertEquals(true,demons.onTouch(activator));
+//	}
 	
 	@Test
 	public void setLife() {
