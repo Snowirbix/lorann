@@ -146,8 +146,14 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	}
 	
 	/**
-	 * To recover the 
+	 * When something touches the hero
 	 * 
+	 * @param activator
+	 * 
+	 * @return if is not a Demons or Fireball return false
+	 * else is a demons the game stop (your lose)
+	 * else if a fireball you recover the fireball
+	 *  
 	 * @author Clément
 	 */
 	public boolean onTouch(IMobile activator) {
@@ -158,37 +164,73 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		}
 		return false;
 	}
+	
+	/**
+	 * Add a order
+	 * @param order
+	 * Order by users
+	 */
 	public void addOrder(ControllerOrder order) {
 		this.orders.add(order);
 	}
 
+	/**
+	 * Remove a order
+	 * @param order
+	 * Order by users
+	 */
 	public void removeOrder(ControllerOrder order) {
 		this.orders.remove(order);
 	}
+	
+	
 	public boolean isOrder(ControllerOrder order) {
 		return this.orders.contains(order);
 	}
-
+	
+	/**
+	 * Get the FireBall
+	 */
 	public FireBall getFireBall() {
 		return this.fireBall;
 	}
 
+	/**
+	 * Set a FireBall
+	 * @param fireBall
+	 */
 	public void setFireBall(FireBall fireBall) {
 		this.fireBall = fireBall;
 	}
-
+	
+	/**
+	 * To recover the position before action
+	 */
 	public Point getPreviousPosition() {
 		return this.previousPosition;
 	}
-
+	
+	/**
+	 * Position before
+	 * @param previousPosition
+	 * The coordinate point before action
+	 */
 	public void setPreviousPosition(Point previousPosition) {
 		this.previousPosition = previousPosition;
 	}
 	
+	/**
+	 * @return the score actual (int)
+	 */
 	public int getScore() {
 		return score;
 	}
 
+	/**
+	 * Add a score
+	 * @param score
+	 * Number of the score to add
+	 */
 	public void setScore(int score) {
 		this.score += score;
 	}

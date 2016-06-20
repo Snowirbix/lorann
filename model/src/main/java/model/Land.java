@@ -9,6 +9,16 @@ import contract.Sprite;
 
 public class Land extends MotionLessElement {
 
+	/**
+	 * Instantiates a new land (Black square).
+	 * Element PENETRABLE.
+	 * 
+	 * @param model
+	 * 
+	 * @see IModel
+	 * 
+	 * @author Clément
+	 */
 	public Land(IModel model) {
 		super(model);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();

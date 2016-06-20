@@ -16,6 +16,8 @@ public class HBone extends MotionLessElement {
 	 * 
 	 * @param model
 	 * 
+	 * @see IModel
+	 * 
 	 * @author Clément
 	 */
 	public HBone(IModel model) {

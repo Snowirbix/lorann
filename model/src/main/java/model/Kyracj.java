@@ -10,11 +10,27 @@ public class Kyracj implements IStrategy{
 	private int lastCase;
 	private boolean state;
 
+	/**
+	 * Instantiates a new Kyracj (Demons).
+	 */
 	public Kyracj(){
 		this.lastCase = 0;
 		this.state = true;
 	}
 
+	/**
+	 * To move the Demons (Kyracj)
+	 * 
+	 * @param positionDemon
+	 * The position of the demons
+	 * 
+	 * @param hero 
+	 * @see IHero
+	 * 
+	 * @return the new position of the Demon.
+	 * 
+	 * @author Clément
+	 */
 	public Point move(Point positionDemon, IHero hero) {
 		int randomNumber;
 		if(this.state) {
