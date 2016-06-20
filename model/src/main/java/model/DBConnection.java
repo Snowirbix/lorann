@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * The Class DBConnection.
  *
- * @author Jean-Aymeric Diet
+ * @author Alban, Alexandre, Clement
  */
 final class DBConnection {
 	/** The instance. */
@@ -36,9 +36,8 @@ final class DBConnection {
 	}
 
 	/**
-	 * Open.
-	 *
-	 * @return the boolean
+	 * Try to connect to the database
+	 * @return true if the connection at the database works
 	 */
 	private Boolean open() {
 		final DBProperties dbProperties = new DBProperties();

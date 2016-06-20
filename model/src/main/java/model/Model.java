@@ -14,7 +14,7 @@ import contract.MotionLessElement;
  * The Class Model is the storage of all data.
  *
  *
- * @author Alban , Alexandre, Clément
+ * @author Alban , Alexandre, Clement
  */
 public class Model extends Observable implements IModel {
 	

@@ -11,6 +11,14 @@ import contract.Permeability;
 import contract.Sprite;
 
 public class FireBall extends Mobile implements ITouchable {
+	/**
+	 * This Constructor adds the different sprites of the fireball in a list and set the direction of the fireball
+	 * @param model
+	 * @param x
+	 * @param y
+	 * @param _x
+	 * @param _y
+	 */
 	public FireBall(IModel model, int x, int y, int _x, int _y) {
 		super(model, x, y);
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
@@ -23,6 +31,12 @@ public class FireBall extends Mobile implements ITouchable {
 		this.setDirection(_x - x, _y - y);
 		this.setPermeability(Permeability.PENETRABLE);
 	}
+	
+	/**
+	 * this method check if the fireball touch something
+	 * @param activator
+	 * @return false if the fireball touch nothing, true if the fireball is on the hero
+	 */
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Hero) {
 			((Hero) activator).setFireBall(null);
@@ -34,6 +48,11 @@ public class FireBall extends Mobile implements ITouchable {
 		}
 		return false;
 	}
+	
+	/**
+	 * this method move the firaball according to the direction
+	 * @return the position of the fireball
+	 */
 	public Point move() {
 		if(this.getDirection().x != 0 || this.getDirection().y != 0) {
 			if(!this.isMovePossible(getPosition().x+getDirection().x, getPosition().y+getDirection().y)) {
