@@ -97,13 +97,14 @@ public class Map extends Entity {
 	public MotionLessElement[][] getMapArray(IModel model) {
 		MotionLessElement[][] mapArray =  new MotionLessElement[this.getWidth()][this.getHeight()];
 		Gate gate = new Gate(model);
-		this.mobiles.add(new Hero(model));
 		for(int y = 0; y < this.getHeight(); y++) {
     	  for(int x = 0; x < this.getWidth(); x++) {
     		  switch(this.getMap().toCharArray()[x+(this.getWidth()+1)*y]) {
     		  	case 'L':
-    		  		this.mobiles.get(0).setPosition(x, y);
-    		  		((Hero) this.mobiles.get(0)).setPreviousPosition(new Point(x-1, y));
+    		  		Hero hero = Hero.getInstance(model);
+    		  		this.mobiles.add(hero);
+    		  		hero.setPosition(x, y);
+    		  		hero.setPreviousPosition(new Point(x-1, y));
     		  		mapArray[x][y] = new Land(model);
     		  		break;
     		  	case 'H':

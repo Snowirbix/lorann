@@ -12,6 +12,8 @@ import contract.Permeability;
 import contract.Sprite;
 
 public class Hero extends Mobile implements ITouchable, IHero {
+	
+	private static Hero	INSTANCE	= null;
 	/**
 	 * @see FireBall
 	 */
@@ -71,7 +73,12 @@ public class Hero extends Mobile implements ITouchable, IHero {
 		this.setPermeability(Permeability.PENETRABLE);
 	}
 	
-	
+	public static Hero getInstance(IModel model) {
+		if (Hero.INSTANCE == null) {
+			Hero.INSTANCE = new Hero(model);
+		}
+		return Hero.INSTANCE;
+	}
 	/**
 	 * To move the Hero
 	 * 
@@ -176,7 +183,8 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	 */
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof Demons) {
-			this.getModel().lose();
+			return true;
+			//this.getModel().lose();
 		} else if(activator instanceof FireBall) {
 			this.disengage();
 		}

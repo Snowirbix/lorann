@@ -3,7 +3,6 @@ package model;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
 import contract.ITouchable;
@@ -43,8 +42,9 @@ public class FireBall extends Mobile implements ITouchable {
 			return true;
 		} else if(activator instanceof Demons) {
 			this.getModel().getMobiles().remove(activator);
-			((IHero) this.getModel().getMobiles().get(0)).setScore(20);
-			((IHero) this.getModel().getMobiles().get(0)).disengage();
+			Hero hero = Hero.getInstance(this.getModel());
+			hero.setScore(20);
+			hero.disengage();
 		}
 		return false;
 	}

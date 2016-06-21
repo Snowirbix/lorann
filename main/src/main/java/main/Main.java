@@ -28,7 +28,7 @@ public abstract class Main {
 			Scanner sc = new Scanner(System.in);
 			int str = sc.nextInt();
 			
-			if(str >= 0 && str <= 6) {
+			if(str >= 0 && str <= 7) {
 				System.out.println("Loading level " + str);
 				model.loadMap(str);
 				menu = 1;

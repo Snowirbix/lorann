@@ -81,7 +81,7 @@ public class Controller implements IController {
 	
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		if(!this.model.getMobiles().isEmpty()) {
-			IHero hero = (IHero) this.model.getMobiles().get(0);
+			IHero hero = this.model.getHero();
 			switch (controllerOrder) {
 				case UP:
 					if(!hero.isOrder(controllerOrder)) {

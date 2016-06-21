@@ -3,7 +3,6 @@ package model;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import contract.IHero;
 import contract.IMobile;
 import contract.IModel;
 import contract.IStrategy;
@@ -55,11 +54,13 @@ public class Demons extends Mobile implements ITouchable {
 	 */
 	public boolean onTouch(IMobile activator) {
 		if(activator instanceof FireBall) {
-			((IHero) this.getModel().getMobiles().get(0)).setScore(20);
-			((IHero) this.getModel().getMobiles().get(0)).disengage();
+			Hero hero = Hero.getInstance(this.getModel());
+			hero.setScore(20);
+			hero.disengage();
 			return true;
 		} else if(activator instanceof Hero) {
-			this.getModel().lose();
+			this.getModel().getMobiles().remove(activator);
+			//this.getModel().lose();
 		}
 		return false;
 	}
@@ -69,7 +70,7 @@ public class Demons extends Mobile implements ITouchable {
 	 * @return the current position of a demon
 	 */
 	public Point move(){
-		Point newPosition = this.movementStrat.move(new Point(position.x, position.y), ((IHero) this.getModel().getMobiles().get(0)));
+		Point newPosition = this.movementStrat.move(new Point(position.x, position.y), Hero.getInstance(this.getModel()));
 		if(this.isMovePossible(newPosition.x, newPosition.y)){
 			this.setPosition(newPosition);
 		} else if(this.isMovePossible(newPosition.x, getPosition().y)) {

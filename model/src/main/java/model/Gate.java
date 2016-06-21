@@ -28,7 +28,6 @@ public class Gate extends MotionLessElement implements ITouchable {
 		sprites.add(new Sprite("gate_open.png"));
 		this.setSprites(sprites);
 		this.setPermeability(Permeability.PENETRABLE);
-		//this.open();
 	}
 
 	/**
@@ -40,6 +39,7 @@ public class Gate extends MotionLessElement implements ITouchable {
 	public void open() {
 		this.state = true;
 		this.setCurrentSprite(1);
+		this.getModel().setMessage("Go to the gate !");
 	}
 	
 	/**

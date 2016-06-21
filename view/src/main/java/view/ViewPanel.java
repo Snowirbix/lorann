@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 
 import contract.IHero;
 import contract.IMobile;
+import contract.IModel;
 import contract.ITouchable;
 import contract.MotionLessElement;
 /**
@@ -73,8 +75,10 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		MotionLessElement[][] map = this.getViewFrame().getModel().getMap();
-		ArrayList<IMobile> mobiles = this.getViewFrame().getModel().getMobiles();
+		IModel model = this.getViewFrame().getModel();
+		MotionLessElement[][] map = model.getMap();
+		ArrayList<IMobile> mobiles = model.getMobiles();
+		IHero hero = model.getHero();;
 		
 		if(map != null) {
 			for(int y = 0; y < map[0].length; y++) {
@@ -106,12 +110,22 @@ class ViewPanel extends JPanel implements Observer {
 				}
 				graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, 32, 32, this);
 			}
-			graphics.setFont(new Font("Calibri", Font.PLAIN, 30));
-			graphics.drawString("Score : " + (((IHero) mobiles.get(0)).getScore()+this.getViewFrame().getModel().getSave().getScore()), map.length*32-180, map[0].length*32+30);
-			graphics.drawString("Life : " + this.getViewFrame().getModel().getSave().getLife(), map.length*32-30, map[0].length*32+30);
+
+			graphics.setColor(new Color(41, 128, 185));
+			graphics.fillRect(0, map[0].length*32, map.length*32/2, 60);
+			graphics.setColor(new Color(22, 160, 133));
+			graphics.fillRect(map.length*32/2, map[0].length*32, map.length*32/2, 60);
+			graphics.setColor(new Color(52, 73, 94));
+			graphics.fillRect(0, map[0].length*32+60, map.length*32, 60);
+
+			graphics.setFont(new Font("Calibri", Font.BOLD, 36));
+			graphics.setColor(new Color(236, 240, 241));
+			graphics.drawString("Score : " + (hero.getScore()+model.getSave().getScore()), 100, map[0].length*32+40);
+			graphics.drawString("Life : " + model.getSave().getLife(), 450, map[0].length*32+40);
+			graphics.drawString(model.getMessage(), 200, map[0].length*32+100);
 		} else {
-			graphics.setFont(new Font("Calibri", Font.PLAIN, 30));
-			graphics.drawString("Best score : " + this.getViewFrame().getModel().getHighScore().getScore(), 800, 450); 
+			graphics.setFont(new Font("Calibri", Font.BOLD, 36));
+			graphics.drawString("Best score : " + model.getHighScore().getScore(), 800, 450); 
 		}
 	}
 }

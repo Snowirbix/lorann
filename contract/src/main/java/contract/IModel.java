@@ -37,4 +37,10 @@ public interface IModel {
 
 	void loadMap(int i);
 	
+	public IHero getHero();
+
+	String getMessage();
+
+	void setMessage(String message);
+	
 }

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.IHero;
 import contract.IHighScore;
 import contract.IMobile;
 import contract.IModel;
@@ -18,6 +19,7 @@ import contract.MotionLessElement;
  */
 public class Model extends Observable implements IModel {
 	
+	private String message;
 	/**
 	 * it allows us to stock the map that we receive from the database
 	 * 
@@ -56,6 +58,7 @@ public class Model extends Observable implements IModel {
 		this.save = (ISave) new Save();
 		this.highScore = (IHighScore) new HighScore();
 		this.loadHighScore();
+		this.setMessage("Pick up the Crystal");
 	}
 	
 	/**
@@ -171,7 +174,8 @@ public class Model extends Observable implements IModel {
 	 * this method get the save with the score of the hero and send it into the database, after this it exit the program
 	 */
 	public void win() {
-		this.getSave().setScore(((Hero) this.getMobiles().get(0)).getScore());
+		this.setMessage("Win !");
+		this.getSave().setScore(this.getHero().getScore());
 		DAOSave daoSave;
 		try {
 			daoSave = new DAOSave(DBConnection.getInstance().getConnection());
@@ -179,7 +183,7 @@ public class Model extends Observable implements IModel {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.exit(0);
+		this.getMobiles().remove(this.getHero());
 	}
 	
 	/**
@@ -187,6 +191,7 @@ public class Model extends Observable implements IModel {
 	 */
 	public void lose() {
 		this.getSave().setLife(-1);
+		this.setMessage("Try again !");
 		if(this.getSave().getLife() <= 0) {
 			DAOHighScore daoHighScore;
 			try {
@@ -205,7 +210,7 @@ public class Model extends Observable implements IModel {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.exit(0);
+		this.getMobiles().remove(this.getHero());
 	}
 	/*
 	 * (non-Javadoc)
@@ -221,6 +226,17 @@ public class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 	
+	public IHero getHero() {
+		return (IHero) Hero.getInstance(this);
+	}
+
+	public void setMessage(String message) {
+		this.message = message;		
+	}
+
+	public String getMessage() {
+		return this.message;
+	}
 	/**
 	 * @return this model
 	 */
