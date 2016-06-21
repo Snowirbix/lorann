@@ -58,6 +58,8 @@ public class Demons extends Mobile implements ITouchable {
 			((IHero) this.getModel().getMobiles().get(0)).setScore(20);
 			((IHero) this.getModel().getMobiles().get(0)).disengage();
 			return true;
+		} else if(activator instanceof Hero) {
+			this.getModel().lose();
 		}
 		return false;
 	}

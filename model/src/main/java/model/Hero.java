@@ -17,7 +17,7 @@ public class Hero extends Mobile implements ITouchable, IHero {
 	 */
 	private FireBall fireBall;
 	/**
-	 * @see ArrayList<ControllerOrder>
+	 * 
 	 */
 	private ArrayList<ControllerOrder> orders;
 	private int score;

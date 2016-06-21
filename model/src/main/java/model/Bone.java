@@ -21,5 +21,4 @@ public class Bone extends MotionLessElement {
 		this.setSprites(sprites);
 		this.setPermeability(Permeability.BLOCKING);
 	}
-
 }
