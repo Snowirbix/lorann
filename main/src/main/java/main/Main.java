@@ -39,7 +39,7 @@ public abstract class Main {
 			}
 			sc.close();
 			
-		}while (menu == 0);
+		} while (menu == 0);
 		
 		controller.run();
 	}

@@ -81,34 +81,41 @@ class ViewPanel extends JPanel implements Observer {
 		IHero hero = model.getHero();;
 		
 		if(map != null) {
+			graphics.setColor(new Color(246, 250, 251));
+			graphics.fillRect(0, 0, this.getViewFrame().getWidth(), this.getViewFrame().getHeight());
+			
 			for(int y = 0; y < map[0].length; y++) {
 				for(int x = 0; x < map.length; x++) {
 					graphics.drawImage(map[x][y].getImage(), x*32, y*32, 32, 32, this);
 				}
 			}
 			for(int i = mobiles.size()-1; i >= 0; i--) {
-				if(i >= mobiles.size()) {
+				if(i >= mobiles.size() && i > 0) {
 					i--;
 				}
-				IMobile mobile = mobiles.get(i);
-				Point postPosition = mobile.move();
-				if(map[mobile.getPosition().x][mobile.getPosition().y] instanceof ITouchable) {
-					((ITouchable) map[mobile.getPosition().x][mobile.getPosition().y]).onTouch(mobile);
-				}
-				for(int j = mobiles.size()-1; j >= 0; j--) {
-					if(j >= mobiles.size()) {
-						j--;
+				if(i != -1) {
+					IMobile mobile = mobiles.get(i);
+					Point postPosition = mobile.move();
+					if(map[mobile.getPosition().x][mobile.getPosition().y] instanceof ITouchable) {
+						((ITouchable) map[mobile.getPosition().x][mobile.getPosition().y]).onTouch(mobile);
 					}
-					IMobile mobile2 = mobiles.get(j);
-					if(mobile2 instanceof ITouchable &&
-					(mobile2.getPosition().x == mobile.getPosition().x && mobile2.getPosition().y == mobile.getPosition().y)
-					|| (mobile2.getPosition().x == postPosition.x && mobile2.getPosition().y == postPosition.y)) {
-						if(((ITouchable) mobile2).onTouch(mobile)) {
-								mobiles.remove(mobile2);
+					for(int j = mobiles.size()-1; j >= 0; j--) {
+						if(j >= mobiles.size()) {
+							j--;
+						}
+						if(j != -1) {
+							IMobile mobile2 = mobiles.get(j);
+							if(mobile2 instanceof ITouchable &&
+							(mobile2.getPosition().x == mobile.getPosition().x && mobile2.getPosition().y == mobile.getPosition().y)
+							|| (mobile2.getPosition().x == postPosition.x && mobile2.getPosition().y == postPosition.y)) {
+								if(((ITouchable) mobile2).onTouch(mobile)) {
+										mobiles.remove(mobile2);
+								}
+							}
 						}
 					}
+					graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, 32, 32, this);
 				}
-				graphics.drawImage(mobile.getImage(), mobile.getPosition().x*32, mobile.getPosition().y*32, 32, 32, this);
 			}
 
 			graphics.setColor(new Color(41, 128, 185));
@@ -122,7 +129,7 @@ class ViewPanel extends JPanel implements Observer {
 			graphics.setColor(new Color(236, 240, 241));
 			graphics.drawString("Score : " + (hero.getScore()+model.getSave().getScore()), 100, map[0].length*32+40);
 			graphics.drawString("Life : " + model.getSave().getLife(), 450, map[0].length*32+40);
-			graphics.drawString(model.getMessage(), 200, map[0].length*32+100);
+			graphics.drawString(model.getMessage(), 250, map[0].length*32+100);
 		} else {
 			graphics.setFont(new Font("Calibri", Font.BOLD, 36));
 			graphics.drawString("Best score : " + model.getHighScore().getScore(), 800, 450); 

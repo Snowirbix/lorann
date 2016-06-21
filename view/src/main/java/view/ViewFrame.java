@@ -26,6 +26,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 
+	private boolean running = false;
 	/**
 	 * Instantiates a new view frame.
 	 *

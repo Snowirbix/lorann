@@ -7,6 +7,8 @@ import contract.IStrategy;
 
 public class Arrbarr implements IStrategy {
 	
+	private int state = 0;
+	
 	public Arrbarr(){
 		
 	}
@@ -20,7 +22,7 @@ public class Arrbarr implements IStrategy {
 		
 		Point heroIsMoving = new Point(hero.getDirection().x, hero.getDirection().y);
 		
-		if(heroIsMoving.x != 0 || heroIsMoving.y != 0) {
+		if(heroIsMoving.x != 0 || heroIsMoving.y != 0 || state == 0) {
 			
 			Point diff;
 			Point dir;
@@ -68,6 +70,8 @@ public class Arrbarr implements IStrategy {
 				}
 			}
 		}
+		state = (state+1)%4;
+		
 		return positionDemon;
 	}
 
